@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
+    uBlock Origin - a comprehensive, efficient content blocker
     Copyright (C) 2017-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -59,6 +59,7 @@ export function init() {
         const entry = {
             name: fn.name,
             code: fn.toString(),
+            world: scriptlet.world || 'MAIN',
             dependencies: scriptlet.dependencies,
             requiresTrust: scriptlet.requiresTrust === true,
         };
@@ -88,7 +89,7 @@ export function compile(details) {
     const scriptletToken = details.args[0];
     const resourceEntry = resourceDetails.get(scriptletToken);
     if ( resourceEntry === undefined ) { return; }
-    if ( resourceEntry.requiresTrust && details.isTrusted !== true ) {
+    if ( resourceEntry.requiresTrust && details.trustedSource !== true ) {
         console.log(`Rejecting ${scriptletToken}: source is not trusted`);
         return;
     }
@@ -96,6 +97,7 @@ export function compile(details) {
         scriptletFiles.set(scriptletToken, {
             name: resourceEntry.name,
             code: createScriptletCoreCode(scriptletToken),
+            world: resourceEntry.world,
             args: new Map(),
             hostnames: new Map(),
             entities: new Map(),
@@ -165,9 +167,10 @@ export async function commit(rulesetId, path, writeFn) {
         );
         content = safeReplace(content, /\$rulesetId\$/, rulesetId, 0);
         content = safeReplace(content, /\$scriptletName\$/, details.name, 0);
+        content = safeReplace(content, '$world$', details.world);
         content = safeReplace(content,
             'self.$argsList$',
-            JSON.stringify(Array.from(details.args.keys()))
+            JSON.stringify(Array.from(details.args.keys()).map(a => JSON.parse(a)))
         );
         content = safeReplace(content,
             'self.$hostnamesMap$',

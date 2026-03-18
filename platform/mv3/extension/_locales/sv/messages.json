@@ -4,7 +4,7 @@
     "description": "extension name."
   },
   "extShortDesc": {
-    "message": "En behörighetslös innehållsblockerare.  Blockerar annonser, spårare, miners och mer omedelbart efter installationen.",
+    "message": "En behörighetslös innehållsblockerare. Blockerar annonser, spårare, miners och mer omedelbart efter installationen.",
     "description": "this will be in the Chrome web store: must be 132 characters or less"
   },
   "perRulesetStats": {
@@ -15,32 +15,8 @@
     "message": "uBO Lite — Kontrollpanel",
     "description": "English: uBO Lite — Dashboard"
   },
-  "dashboardUnsavedWarning": {
-    "message": "Varning! Du har inte sparat dina ändringar",
-    "description": "A warning in the dashboard when navigating away from unsaved changes"
-  },
-  "dashboardUnsavedWarningStay": {
-    "message": "Stanna kvar",
-    "description": "Label for button to prevent navigating away from unsaved changes"
-  },
-  "dashboardUnsavedWarningIgnore": {
-    "message": "Ignorera",
-    "description": "Label for button to ignore unsaved changes"
-  },
   "settingsPageName": {
     "message": "Inställningar",
-    "description": "appears as tab name in dashboard"
-  },
-  "3pPageName": {
-    "message": "Filterlistor",
-    "description": "appears as tab name in dashboard"
-  },
-  "1pPageName": {
-    "message": "Mina filter",
-    "description": "appears as tab name in dashboard"
-  },
-  "whitelistPageName": {
-    "message": "Betrodda webbplatser",
     "description": "appears as tab name in dashboard"
   },
   "aboutPageName": {
@@ -55,73 +31,21 @@
     "message": "filtreringsläge",
     "description": "Label in the popup panel for the current filtering mode"
   },
-  "popupTipDashboard": {
-    "message": "Öppna kontrollpanelen",
-    "description": "English: Click to open the dashboard"
-  },
-  "popupTipZapper": {
-    "message": "Gå till elementzapperläge",
-    "description": "Tooltip for the element-zapper icon in the popup panel"
-  },
-  "popupTipPicker": {
-    "message": "Gå till elementväljarläge",
-    "description": "English: Enter element picker mode"
-  },
   "popupTipReport": {
     "message": "Rapportera ett problem på denna webbplats",
     "description": "Tooltip used for the 'chat' icon in the panel"
   },
-  "popupTipSaveRules": {
-    "message": "Klicka för att göra dina ändringar permanenta.",
-    "description": "Tooltip when hovering over the padlock in the dynamic filtering pane."
-  },
-  "popupTipRevertRules": {
-    "message": "Klicka för att ångra dina ändringar.",
-    "description": "Tooltip when hovering over the eraser in the dynamic filtering pane."
+  "popupTipDashboard": {
+    "message": "Öppna kontrollpanelen",
+    "description": "English: Click to open the dashboard"
   },
   "popupMoreButton": {
     "message": "Mer",
     "description": "Label to be used to show popup panel sections"
   },
-  "popupGrantGreatPowers": {
-    "message": "Klicka för att ge uBO Lite utökade behörigheter på den här webbplatsen.\nMed utökade behörigheter blir innehållsblockering mer effektiv.",
-    "description": "Label to be used to show popup panel sections"
-  },
-  "popupRevokeGreatPowers": {
-    "message": "Klicka för att återkalla utökade behörigheter på den här webbplatsen",
-    "description": "Label to be used to show popup panel sections"
-  },
   "popupLessButton": {
     "message": "Mindre",
     "description": "Label to be used to hide popup panel sections"
-  },
-  "settingsIconBadgePrompt": {
-    "message": "Visa antalet blockerade förfrågningar på ikonen",
-    "description": "English: Show the number of blocked requests on the icon"
-  },
-  "settingsAppearance": {
-    "message": "Utseende",
-    "description": "Section for controlling user interface appearance"
-  },
-  "settingsThemeLabel": {
-    "message": "Tema",
-    "description": "Label for checkbox to enable a custom dark theme"
-  },
-  "settingsThemeAccent0Label": {
-    "message": "Anpassad accentfärg",
-    "description": "Label for checkbox to pick an accent color"
-  },
-  "settingsNoCSPReportsPrompt": {
-    "message": "Blockera CSP-rapporter",
-    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
-  },
-  "omnipotenceLabel": {
-    "message": "Aktivera utökad filtrering på alla webbplatser",
-    "description": "Header for a ruleset section in 'Filter lists pane'"
-  },
-  "omnipotenceLegend": {
-    "message": "uBO Lite kan endast använda utökad filtrering på en given webbplats efter att du uttryckligen har gett tilläggsbehörighet att ändra data på den webbplatsen. Med den här inställningen kan du ge behörigheter för utökad filtrering till alla webbplatser samtidigt.",
-    "description": "Header for a ruleset section in 'Filter lists pane'"
   },
   "3pGroupDefault": {
     "message": "Standard",
@@ -151,38 +75,6 @@
     "message": "Regioner, språk",
     "description": "Header for a ruleset section in 'Filter lists pane'"
   },
-  "1pFormatHint": {
-    "message": "Ett filter per rad. Ett filter kan vara ett vanligt värdnamn eller ett EasyList-kompatibelt filter. Rader med prefixet <code>!</code> ignoreras.",
-    "description": "Short information about how to create custom filters"
-  },
-  "1pImport": {
-    "message": "Importera och lägg till",
-    "description": "English: Import and append"
-  },
-  "1pExport": {
-    "message": "Exportera",
-    "description": "English: Export"
-  },
-  "1pExportFilename": {
-    "message": "mina-ublock-statiska-filter_{{datetime}}.txt",
-    "description": "English: my-ublock-static-filters_{{datetime}}.txt"
-  },
-  "whitelistPrompt": {
-    "message": "Direktiven för betrodda webbplatser anger vilka webbsidor som uBlock Origin ska inaktiveras på. En post per rad.",
-    "description": "A concise description of the 'Trusted sites' pane."
-  },
-  "whitelistImport": {
-    "message": "Importera och lägg till",
-    "description": "English: Import and append"
-  },
-  "whitelistExport": {
-    "message": "Exportera",
-    "description": "English: Export"
-  },
-  "whitelistExportFilename": {
-    "message": "mina-ublock-betrodda-webbplatser_{{datetime}}.txt",
-    "description": "The default filename to use for import/export purpose"
-  },
   "aboutChangelog": {
     "message": "Ändringslogg",
     "description": ""
@@ -211,17 +103,69 @@
     "message": "Externa beroenden (GPLv3-kompatibla):",
     "description": "Shown in the About pane"
   },
-  "genericSubmit": {
-    "message": "Skicka",
-    "description": "for generic 'Submit' buttons"
+  "supportS6H": {
+    "message": "Rapportera ett filterproblem",
+    "description": "Header of 'Report a filter issue' section in Support pane"
   },
-  "genericApplyChanges": {
-    "message": "Verkställ ändringar",
-    "description": "for generic 'Apply changes' buttons"
+  "supportS3P1": {
+    "message": "Rapportera filterproblem med specifika webbplatser till <span data-url=\"https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue\"><code>uBlockOrigin/uAssets</code> problemhanteringssystemet</span>. <u>Kräver ett GitHub-konto.</u>",
+    "description": "First paragraph of 'Filter issues' section in Support pane"
   },
-  "genericRevert": {
-    "message": "Ångra",
-    "description": "for generic 'Revert' buttons"
+  "supportS6P1S1": {
+    "message": "För att undvika att belasta volontärer med dubbletter av rapporter, kontrollera att problemet inte redan har rapporterats.",
+    "description": "A paragraph in the filter issue reporter section"
+  },
+  "supportFindSpecificButton": {
+    "message": "Hitta liknande rapporter",
+    "description": "A clickable link in the filter issue reporter section"
+  },
+  "supportS6URL": {
+    "message": "Hemsidans adress:",
+    "description": "Label for the URL of the page"
+  },
+  "supportS6Select1": {
+    "message": "Hemsidan...",
+    "description": "Label for widget to select type of issue"
+  },
+  "supportS6Select1Option0": {
+    "message": "-- Välj en post --",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option1": {
+    "message": "Visar annonser eller rester av annonser",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option2": {
+    "message": "Har överlägg eller andra olägenheter",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option3": {
+    "message": "Upptäcker uBO Lite",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option4": {
+    "message": "Har integritetsrelaterade problem",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option5": {
+    "message": "Fungerar inte när uBO Lite är aktiverad",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option6": {
+    "message": "Öppnar oönskade flikar eller fönster",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "Leder till skadlig programvara, nätfiske",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Checkbox1": {
+    "message": "Märk webbsidan som “NSFW” (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">“Inte lämplig på jobbet”</a>)",
+    "description": "A checkbox to use for NSFW sites"
+  },
+  "supportReportSpecificButton": {
+    "message": "Skapa ny rapport",
+    "description": "Text for button which open an external webpage in Support pane"
   },
   "firstRunSectionLabel": {
     "message": "Välkommen",
@@ -267,12 +211,24 @@
     "message": "Avancerad nätverksfiltrering plus specifik och allmän utökad filtrering från utvalda filterlistor.\n\nKräver bred behörighet för att läsa och ändra data på alla webbplatser.\n\nAllmän utökad filtrering kan orsaka högre användning av webbsidors resurser.",
     "description": "This describes the 'complete' filtering mode"
   },
+  "noFilteringModeDescription": {
+    "message": "Lista över värdnamn som inte kommer att filtreras",
+    "description": "A short description for the editable field which lists trusted sites"
+  },
+  "noFilteringModePlaceholder": {
+    "message": "[endast värdnamn]\nexempel.se\nspel.exempel\n...",
+    "description": "Default text for in edit field"
+  },
   "behaviorSectionLabel": {
     "message": "Beteende",
     "description": "The header text for the 'Behavior' section"
   },
   "autoReloadLabel": {
     "message": "Ladda automatiskt om sidan när du byter filtreringsläge",
+    "description": "Label for a checkbox in the options page"
+  },
+  "showBlockedCountLabel": {
+    "message": "Visa antalet blockerade förfrågningar på verktygsfältsikonen",
     "description": "Label for a checkbox in the options page"
   }
 }

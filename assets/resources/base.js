@@ -1,7 +1,7 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
-    Copyright (C) 2014-present Raymond Hill
+    uBlock Origin - a comprehensive, efficient content blocker
+    Copyright (C) 2019-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,14 +17,24 @@
     along with this program.  If not, see {http://www.gnu.org/licenses/}.
 
     Home: https://github.com/gorhill/uBlock
+
+    The scriptlets below are meant to be injected only into a
+    web page context.
 */
 
-'use strict';
+export const registeredScriptlets = [];
 
-import { dom } from './dom.js';
-
-/******************************************************************************/
-
-// Open links in the proper window
-dom.attr('a', 'target', '_blank');
-dom.attr('a[href*="dashboard.html"]', 'target', '_parent');
+export const registerScriptlet = (fn, details) => {
+    if ( typeof details !== 'object' ) {
+        throw new ReferenceError('Missing scriptlet details');
+    }
+    details.fn = fn;
+    fn.details = details;
+    if ( Array.isArray(details.dependencies) ) {
+        details.dependencies.forEach((fn, i, array) => {
+            if ( typeof fn !== 'function' ) { return; }
+            array[i] = fn.details.name;
+        });
+    }
+    registeredScriptlets.push(details);
+};

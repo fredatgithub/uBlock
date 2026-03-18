@@ -312,7 +312,7 @@
     "description": "English: Click, Ctrl-click"
   },
   "pickerContextMenuEntry": {
-    "message": "إحجب العنصر...",
+    "message": "حجب العنصر...",
     "description": "An entry in the browser's contextual menu"
   },
   "settingsCollapseBlockedPrompt": {
@@ -483,6 +483,14 @@
     "message": "مواقع مصابة أو تحتوي على فايروسات",
     "description": "Filter lists section name"
   },
+  "3pGroupSocial": {
+    "message": "أدوات مواقع التواصل الاجتماعية",
+    "description": "Filter lists section name"
+  },
+  "3pGroupCookies": {
+    "message": "اشعارات ملفات تعريف الارتباط",
+    "description": "Filter lists section name"
+  },
   "3pGroupAnnoyances": {
     "message": "عناصر مزعجة",
     "description": "Filter lists section name"
@@ -527,17 +535,25 @@
     "message": "حدث خطأ في الشبكة منع تحديث المورد.",
     "description": "used as a tooltip for error icon beside a list"
   },
-  "1pFormatHint": {
-    "message": "فلتر واحد في كل سطر. يمكن ان يكون الفلتر رابط موقع او فلتر متوافق مع EasyList-compatible. السطور المسبوقة بـ<code>!</code> سوف يتم تجاهلها.",
-    "description": "Short information about how to create custom filters"
+  "1pTrustWarning": {
+    "message": "لا تضف مرشحات من مصادر غير موثوقة.",
+    "description": "Warning against copy-pasting filters from random sources"
+  },
+  "1pEnableMyFiltersLabel": {
+    "message": "تفعيل تصفياتي المخصصة",
+    "description": "Label for the checkbox use to enable/disable 'My filters' list"
+  },
+  "1pTrustMyFiltersLabel": {
+    "message": "السماح بالفلاتر المخصصة التي تتطلب الثقة",
+    "description": "Label for the checkbox use to trust the content of 'My filters' list"
   },
   "1pImport": {
-    "message": "استيراد",
-    "description": "English: Import and append"
+    "message": "استيراد و إضافة",
+    "description": "Button in the 'My filters' pane"
   },
   "1pExport": {
     "message": "تصدير",
-    "description": "English: Export"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExportFilename": {
     "message": "my-ublock-static-filters_{{datetime}}.txt",
@@ -581,7 +597,7 @@
   },
   "rulesExport": {
     "message": "تصدير إلى ملف",
-    "description": ""
+    "description": "Button in the 'My rules' pane"
   },
   "rulesDefaultFileName": {
     "message": "my-ublock-dynamic-rules_{{datetime}}.txt",
@@ -616,12 +632,12 @@
     "description": "A concise description of the 'Trusted sites' pane."
   },
   "whitelistImport": {
-    "message": "استيراد",
-    "description": "English: Import and append"
+    "message": "استيراد و إضافة",
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExport": {
     "message": "تصدير",
-    "description": "English: Export"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExportFilename": {
     "message": "my-ublock-whitelist_{{datetime}}.txt",
@@ -816,7 +832,7 @@
     "description": "Used in the static filtering wizard"
   },
   "loggerStaticFilteringFinderSentence1": {
-    "message": "فلتر ثابت <code>{{filter}}</code> موجود على:",
+    "message": "فلتر ثابت <code>{{filter}}</code> موجود في:",
     "description": "Below this sentence, the filter list(s) in which the filter was found"
   },
   "loggerStaticFilteringFinderSentence2": {
@@ -995,6 +1011,10 @@
     "message": "افتح التبويبات أو النوافذ التي ليس مرغوبًا بها",
     "description": "An entry in the widget used to select the type of issue"
   },
+  "supportS6Select1Option7": {
+    "message": "يؤدي إلى البرامج الضارة والإحتيال",
+    "description": "An entry in the widget used to select the type of issue"
+  },
   "supportS6Checkbox1": {
     "message": "تسمية صفحة الويب باسم \"NSFW\" (<a href=\"https://ar.wikipedia.org/wiki/%D8%BA%D9%8A%D8%B1_%D9%85%D9%86%D8%A7%D8%B3%D8%A8_%D9%84%D9%84%D8%B9%D9%85%D9%84\">\"ليس آمن للعمل\"\n",
     "description": "A checkbox to use for NSFW sites"
@@ -1171,6 +1191,10 @@
     "message": "تقدّم",
     "description": "Button text to navigate to the blocked page"
   },
+  "docblockedRedirectPrompt": {
+    "message": "The blocked page wants to redirect to another site. If you choose to proceed, you will navigate directly to: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
   "cloudPush": {
     "message": "التصدير إلى سحابة التخزين",
     "description": "tooltip"
@@ -1228,7 +1252,7 @@
     "description": "A context menu entry, to view the source code of the target resource"
   },
   "shortcutCapturePlaceholder": {
-    "message": "ادخل اختصار",
+    "message": "أدخِل اختصار",
     "description": "Placeholder string for input field used to capture a keyboard shortcut"
   },
   "genericMergeViewScrollLock": {
@@ -1246,6 +1270,10 @@
   "toggleCosmeticFiltering": {
     "message": "تبديل تصفية مستحضرات التجميل",
     "description": "Label for keyboard shortcut used to toggle cosmetic filtering"
+  },
+  "toggleJavascript": {
+    "message": "تعطيل جافا سكريبت",
+    "description": "Label for keyboard shortcut used to toggle no-scripting switch"
   },
   "relaxBlockingMode": {
     "message": "وضع الحظر المتراخي",

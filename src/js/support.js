@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
+    uBlock Origin - a comprehensive, efficient content blocker
     Copyright (C) 2014-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -23,6 +23,7 @@
 
 'use strict';
 
+import { onBroadcast } from './broadcast.js';
 import { dom, qs$ } from './dom.js';
 
 /******************************************************************************/
@@ -210,8 +211,9 @@ const reportedPage = (( ) => {
             dom.text(option, parsedURL.href);
             select.append(option);
         }
-        if ( url.searchParams.get('shouldUpdate') !== null ) {
-            dom.cl.add(dom.body, 'shouldUpdate');
+        const shouldUpdateLists = url.searchParams.get('shouldUpdateLists');
+        if ( shouldUpdateLists !== null ) {
+            dom.body.dataset.shouldUpdateLists = shouldUpdateLists;
         }
         dom.cl.add(dom.body, 'filterIssue');
         return {
@@ -250,8 +252,11 @@ function reportSpecificFilterIssue() {
 }
 
 async function updateFilterLists() {
+    if ( dom.body.dataset.shouldUpdateLists === undefined ) { return false; }
     dom.cl.add(dom.body, 'updating');
-    vAPI.messaging.send('dashboard', { what: 'forceUpdateAssets' });
+    const assetKeys = JSON.parse(dom.body.dataset.shouldUpdateLists);
+    vAPI.messaging.send('dashboard', { what: 'supportUpdateNow', assetKeys });
+    return true;
 }
 
 /******************************************************************************/
@@ -281,9 +286,9 @@ uBlockDashboard.patchCodeMirrorEditor(cmEditor);
     });
 
     if ( reportedPage !== null ) {
-        if ( dom.cl.has(dom.body, 'shouldUpdate') ) {
+        if ( dom.body.dataset.shouldUpdateLists ) {
             dom.on('.supportEntry.shouldUpdate button', 'click', ev => {
-                updateFilterLists();
+                if ( updateFilterLists() === false ) { return; }
                 ev.preventDefault();
             });
         }
@@ -311,7 +316,7 @@ uBlockDashboard.patchCodeMirrorEditor(cmEditor);
         });
     }
 
-    vAPI.broadcastListener.add(msg => {
+    onBroadcast(msg => {
         if ( msg.what === 'assetsUpdated' ) {
             dom.cl.remove(dom.body, 'updating');
             dom.cl.add(dom.body, 'updated');

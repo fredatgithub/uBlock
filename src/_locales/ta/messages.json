@@ -483,6 +483,14 @@
     "message": "தீப்பொருள் ஆள்களங்கள்",
     "description": "Filter lists section name"
   },
+  "3pGroupSocial": {
+    "message": "Social widgets",
+    "description": "Filter lists section name"
+  },
+  "3pGroupCookies": {
+    "message": "Cookie notices",
+    "description": "Filter lists section name"
+  },
   "3pGroupAnnoyances": {
     "message": "எரிச்சல்கள்",
     "description": "Filter lists section name"
@@ -527,17 +535,25 @@
     "message": "ஒரு பிணைய பிழை வளத்தைப் புதுப்பிப்பதைத் தடுத்தது.",
     "description": "used as a tooltip for error icon beside a list"
   },
-  "1pFormatHint": {
-    "message": "ஒரு வரிக்கு ஒரு வடிகட்டி. வடிகட்டி என்பது வெறும் வழங்கிப்பெயராக இருக்கலாம், அல்லது Adblock Plus-க்குப் பொருந்தும் வடிகட்டியாக இருக்கலாம். &lsquo;!&rsquo; எனும் எழுத்தில் தொடங்கும் வரிகள் புறக்கணிக்கப்படும்.",
-    "description": "Short information about how to create custom filters"
+  "1pTrustWarning": {
+    "message": "Do not add filters from untrusted sources.",
+    "description": "Warning against copy-pasting filters from random sources"
+  },
+  "1pEnableMyFiltersLabel": {
+    "message": "Enable my custom filters",
+    "description": "Label for the checkbox use to enable/disable 'My filters' list"
+  },
+  "1pTrustMyFiltersLabel": {
+    "message": "Allow custom filters requiring trust",
+    "description": "Label for the checkbox use to trust the content of 'My filters' list"
   },
   "1pImport": {
     "message": "இறக்குமதி செய் மற்றும் இணை",
-    "description": "English: Import and append"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExport": {
     "message": "ஏற்று",
-    "description": "English: Export"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExportFilename": {
     "message": "my-ublock-dynamic-rules_{{datetime}}.txt",
@@ -581,7 +597,7 @@
   },
   "rulesExport": {
     "message": "கோப்பினுள் ஏற்று",
-    "description": ""
+    "description": "Button in the 'My rules' pane"
   },
   "rulesDefaultFileName": {
     "message": "my-ublock-dynamic-rules_{{datetime}}.txt",
@@ -617,11 +633,11 @@
   },
   "whitelistImport": {
     "message": "இறக்குமதி செய்து சேர்",
-    "description": "English: Import and append"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExport": {
     "message": "ஏற்று",
-    "description": "English: Export"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExportFilename": {
     "message": "my-ublock-dynamic-rules_{{datetime}}.txt",
@@ -995,6 +1011,10 @@
     "message": "தேவையற்ற தாவல்கள் அ சாளரங்களைத் திறக்கிறது",
     "description": "An entry in the widget used to select the type of issue"
   },
+  "supportS6Select1Option7": {
+    "message": "Leads to badware, phishing",
+    "description": "An entry in the widget used to select the type of issue"
+  },
   "supportS6Checkbox1": {
     "message": "Label the web page as “NSFW” (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">“Not Safe For Work”</a>)",
     "description": "A checkbox to use for NSFW sites"
@@ -1171,6 +1191,10 @@
     "message": "Proceed",
     "description": "Button text to navigate to the blocked page"
   },
+  "docblockedRedirectPrompt": {
+    "message": "The blocked page wants to redirect to another site. If you choose to proceed, you will navigate directly to: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
   "cloudPush": {
     "message": "மேகக்கணினி சேமிப்பகத்திற்கு ஏற்று",
     "description": "tooltip"
@@ -1246,6 +1270,10 @@
   "toggleCosmeticFiltering": {
     "message": "ஒப்பனை வடிகட்டுதலை மறுநிலைமாற்று",
     "description": "Label for keyboard shortcut used to toggle cosmetic filtering"
+  },
+  "toggleJavascript": {
+    "message": "Toggle JavaScript",
+    "description": "Label for keyboard shortcut used to toggle no-scripting switch"
   },
   "relaxBlockingMode": {
     "message": "தடுப்பு பயன்முறையை தளர்த்தவும்",

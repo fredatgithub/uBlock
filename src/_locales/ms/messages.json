@@ -8,7 +8,7 @@
     "description": "this will be in the Chrome web store: must be 132 characters or less"
   },
   "dashboardName": {
-    "message": "uBlock₀ — Papanmuka",
+    "message": "uBlock₀ — Papan pemuka",
     "description": "English: uBlock₀ — Dashboard"
   },
   "dashboardUnsavedWarning": {
@@ -40,7 +40,7 @@
     "description": "appears as tab name in dashboard"
   },
   "whitelistPageName": {
-    "message": "Senarai putih",
+    "message": "Halaman dipercayai",
     "description": "appears as tab name in dashboard"
   },
   "shortcutsPageName": {
@@ -124,7 +124,7 @@
     "description": "English: Enter element picker mode"
   },
   "popupTipLog": {
-    "message": "Membuka catatan",
+    "message": "Buka pengelog",
     "description": "Tooltip used for the logger icon in the panel"
   },
   "popupTipReport": {
@@ -188,7 +188,7 @@
     "description": "Tooltip for the no-scripting per-site switch"
   },
   "popupNoPopups_v2": {
-    "message": "Tetingkap pop timbul",
+    "message": "Tingkap timbul",
     "description": "Caption for the no-popups per-site switch"
   },
   "popupNoLargeMedia_v2": {
@@ -200,7 +200,7 @@
     "description": "Caption for the no-cosmetic-filtering per-site switch"
   },
   "popupNoRemoteFonts_v2": {
-    "message": "Fon terpencil",
+    "message": "Font tersendiri",
     "description": "Caption for the no-remote-fonts per-site switch"
   },
   "popupNoScripting_v2": {
@@ -276,11 +276,11 @@
     "description": "Example of use: Version 1.26.4"
   },
   "popup3pScriptFilter": {
-    "message": "script",
+    "message": "skrip",
     "description": "Appears as an option to filter out firewall rows"
   },
   "popup3pFrameFilter": {
-    "message": "frame",
+    "message": "kerangka",
     "description": "Appears as an option to filter out firewall rows"
   },
   "pickerCreate": {
@@ -483,6 +483,14 @@
     "message": "Domain perisian hasad",
     "description": "Filter lists section name"
   },
+  "3pGroupSocial": {
+    "message": "Widget sosial",
+    "description": "Filter lists section name"
+  },
+  "3pGroupCookies": {
+    "message": "Notis kuki",
+    "description": "Filter lists section name"
+  },
   "3pGroupAnnoyances": {
     "message": "Kejengkelan",
     "description": "Filter lists section name"
@@ -527,17 +535,25 @@
     "message": "Ralat rangkaian menghalang sumber dikemas kini..",
     "description": "used as a tooltip for error icon beside a list"
   },
-  "1pFormatHint": {
-    "message": "Satu penapis setiap baris. Penapis boleh menjadi nama hos biasa, atau penapis yang sesuai dengan Daftar Mudah. Garis yang diawali dengan <code>! </code> akan diabaikan.",
-    "description": "Short information about how to create custom filters"
+  "1pTrustWarning": {
+    "message": "Jangan tambah penapis daripada sumber yang tidak dipercayai.",
+    "description": "Warning against copy-pasting filters from random sources"
+  },
+  "1pEnableMyFiltersLabel": {
+    "message": "Dayakan penapis tersuai saya",
+    "description": "Label for the checkbox use to enable/disable 'My filters' list"
+  },
+  "1pTrustMyFiltersLabel": {
+    "message": "Benarkan penapis tersuai yang memerlukan kepercayaan",
+    "description": "Label for the checkbox use to trust the content of 'My filters' list"
   },
   "1pImport": {
     "message": "Import dan melampirkan",
-    "description": "English: Import and append"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExport": {
     "message": "Eksport",
-    "description": "English: Export"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExportFilename": {
     "message": "my-ublock-static-filter _ {{datetime}}. txt",
@@ -581,7 +597,7 @@
   },
   "rulesExport": {
     "message": "Eksport ke fail",
-    "description": ""
+    "description": "Button in the 'My rules' pane"
   },
   "rulesDefaultFileName": {
     "message": "my-ublock-dynamic-rules_{{datetime}}.txt\n",
@@ -617,11 +633,11 @@
   },
   "whitelistImport": {
     "message": "Import dan melampirkan",
-    "description": "English: Import and append"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExport": {
     "message": "Eksport",
-    "description": "English: Export"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExportFilename": {
     "message": "my-ublock-trusted-sites_{{datetime}}.txt\n",
@@ -952,11 +968,11 @@
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportS6P2S1": {
-    "message": "Filter lists are updated daily. Be sure your issue has not already been addressed in the most recent filter lists.",
+    "message": "Senarai penapis dikemas kini setiap hari. Pastikan isu anda belum ditangani dalam senarai penapis terbaharu.",
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportS6P2S2": {
-    "message": "Verify that the issue still exists after reloading the problematic webpage.",
+    "message": "Sahkan bahawa isu itu masih wujud selepas memuat semula halaman web yang bermasalah.",
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportS6URL": {
@@ -993,6 +1009,10 @@
   },
   "supportS6Select1Option6": {
     "message": "Membuka tab atau tetingkap yang tidak diingini",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "Leads to badware, phishing",
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Checkbox1": {
@@ -1171,6 +1191,10 @@
     "message": "Teruskan",
     "description": "Button text to navigate to the blocked page"
   },
+  "docblockedRedirectPrompt": {
+    "message": "The blocked page wants to redirect to another site. If you choose to proceed, you will navigate directly to: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
   "cloudPush": {
     "message": "Eksport ke storan awan",
     "description": "tooltip"
@@ -1224,7 +1248,7 @@
     "description": "A context menu entry, present when large media elements have been blocked on the current site"
   },
   "contextMenuViewSource": {
-    "message": "View source code…",
+    "message": "Lihat kod sumber…",
     "description": "A context menu entry, to view the source code of the target resource"
   },
   "shortcutCapturePlaceholder": {
@@ -1246,6 +1270,10 @@
   "toggleCosmeticFiltering": {
     "message": "Togol penapis kosmetik",
     "description": "Label for keyboard shortcut used to toggle cosmetic filtering"
+  },
+  "toggleJavascript": {
+    "message": "Togol JavaScript",
+    "description": "Label for keyboard shortcut used to toggle no-scripting switch"
   },
   "relaxBlockingMode": {
     "message": "Tenang mod menyekat",
@@ -1272,11 +1300,11 @@
     "description": "Message used in frame placeholders"
   },
   "linterMainReport": {
-    "message": "Errors: {{count}}",
+    "message": "Ralat: {{count}}",
     "description": "Summary of number of errors as reported by the linter "
   },
   "unprocessedRequestTooltip": {
-    "message": "Could not filter properly at browser launch. Reload the page to ensure proper filtering.",
+    "message": "Tidak dapat menapis dengan betul semasa pelancaran pelayar. Muat semula halaman untuk memastikan penapisan yang betul.",
     "description": "A warning which will appear in the popup panel if needed"
   },
   "dummy": {

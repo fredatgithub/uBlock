@@ -15,32 +15,8 @@
     "message": "uBO Lite — Töölaud",
     "description": "English: uBO Lite — Dashboard"
   },
-  "dashboardUnsavedWarning": {
-    "message": "Hoiatus! Sul on salvestamata muudatusi",
-    "description": "A warning in the dashboard when navigating away from unsaved changes"
-  },
-  "dashboardUnsavedWarningStay": {
-    "message": "Jää lehele",
-    "description": "Label for button to prevent navigating away from unsaved changes"
-  },
-  "dashboardUnsavedWarningIgnore": {
-    "message": "Eira",
-    "description": "Label for button to ignore unsaved changes"
-  },
   "settingsPageName": {
     "message": "Sätted",
-    "description": "appears as tab name in dashboard"
-  },
-  "3pPageName": {
-    "message": "Filtriloendid",
-    "description": "appears as tab name in dashboard"
-  },
-  "1pPageName": {
-    "message": "Minu filtrid",
-    "description": "appears as tab name in dashboard"
-  },
-  "whitelistPageName": {
-    "message": "Usaldatud saidid",
     "description": "appears as tab name in dashboard"
   },
   "aboutPageName": {
@@ -55,73 +31,21 @@
     "message": "filtreerimisrežiim",
     "description": "Label in the popup panel for the current filtering mode"
   },
+  "popupTipReport": {
+    "message": "Teavita veast selle veebilehega",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
   "popupTipDashboard": {
     "message": "Ava töölaud",
     "description": "English: Click to open the dashboard"
-  },
-  "popupTipZapper": {
-    "message": "Sisene elemendi hävitusrežiimi",
-    "description": "Tooltip for the element-zapper icon in the popup panel"
-  },
-  "popupTipPicker": {
-    "message": "Sisene elemendi valikurežiimi",
-    "description": "English: Enter element picker mode"
-  },
-  "popupTipReport": {
-    "message": "Teavita selle veebilehe probleemist",
-    "description": "Tooltip used for the 'chat' icon in the panel"
-  },
-  "popupTipSaveRules": {
-    "message": "Klõpsa, et teha oma muudatused püsivaks.",
-    "description": "Tooltip when hovering over the padlock in the dynamic filtering pane."
-  },
-  "popupTipRevertRules": {
-    "message": "Klõpsa, et võtta muudatused tagasi.",
-    "description": "Tooltip when hovering over the eraser in the dynamic filtering pane."
   },
   "popupMoreButton": {
     "message": "Rohkem",
     "description": "Label to be used to show popup panel sections"
   },
-  "popupGrantGreatPowers": {
-    "message": "Klõpsa, et anda uBO Lite'il selle saidi jaoks laiendatud õigused.\nLaiendatud õigused võimaldavad efektiivsemat sisublokeerimist.",
-    "description": "Label to be used to show popup panel sections"
-  },
-  "popupRevokeGreatPowers": {
-    "message": "Klõpsa, et eemaldada selle saidi laiendatud õigused",
-    "description": "Label to be used to show popup panel sections"
-  },
   "popupLessButton": {
     "message": "Vähem",
     "description": "Label to be used to hide popup panel sections"
-  },
-  "settingsIconBadgePrompt": {
-    "message": "Kuva ikoonil blokeeritud elementide arv",
-    "description": "English: Show the number of blocked requests on the icon"
-  },
-  "settingsAppearance": {
-    "message": "Välimus",
-    "description": "Section for controlling user interface appearance"
-  },
-  "settingsThemeLabel": {
-    "message": "Teema",
-    "description": "Label for checkbox to enable a custom dark theme"
-  },
-  "settingsThemeAccent0Label": {
-    "message": "Kohandatud rõhuvärv",
-    "description": "Label for checkbox to pick an accent color"
-  },
-  "settingsNoCSPReportsPrompt": {
-    "message": "Keela lehe turvareeglite (CSP-de) aruanded",
-    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
-  },
-  "omnipotenceLabel": {
-    "message": "Luba põhjalik filtreerimine kõikidel veebilehtedel",
-    "description": "Header for a ruleset section in 'Filter lists pane'"
-  },
-  "omnipotenceLegend": {
-    "message": "uBO Lite filtreerib teatud veebilehte põhjalikult vaid juhul, kui lubate selgesõnaliselt laiendi lubades muuta selle veebilehe andmeid. Selle sättega lubate filtreerida kõiki veebilehti põhjalikult ja samal ajal.",
-    "description": "Header for a ruleset section in 'Filter lists pane'"
   },
   "3pGroupDefault": {
     "message": "Vaikimisi",
@@ -151,38 +75,6 @@
     "message": "Regioonid, keeled",
     "description": "Header for a ruleset section in 'Filter lists pane'"
   },
-  "1pFormatHint": {
-    "message": "Üks filter rea kohta. Filtriks võib olla tavaline hostinimi või EasyListiga ühilduv filter. Eesliitega <code>!</code> algavaid ridu eiratakse.",
-    "description": "Short information about how to create custom filters"
-  },
-  "1pImport": {
-    "message": "Impordi ja lisa",
-    "description": "English: Import and append"
-  },
-  "1pExport": {
-    "message": "Ekspordi",
-    "description": "English: Export"
-  },
-  "1pExportFilename": {
-    "message": "minu-ublocki-staatilised-filtrid_{{datetime}}.txt",
-    "description": "English: my-ublock-static-filters_{{datetime}}.txt"
-  },
-  "whitelistPrompt": {
-    "message": "Usaldatud saitide direktiivid määravad, millistel veebilehtedel peaks uBlock Origin keelatud olema. Üks kirje rea kohta.",
-    "description": "A concise description of the 'Trusted sites' pane."
-  },
-  "whitelistImport": {
-    "message": "Impordi ja lisa",
-    "description": "English: Import and append"
-  },
-  "whitelistExport": {
-    "message": "Ekspordi",
-    "description": "English: Export"
-  },
-  "whitelistExportFilename": {
-    "message": "minu-ublocki-usaldatud-saidid_{{datetime}}.txt",
-    "description": "The default filename to use for import/export purpose"
-  },
   "aboutChangelog": {
     "message": "Muudatuste logi",
     "description": ""
@@ -211,17 +103,69 @@
     "message": "Välised sõltuvused (ühilduvad GPLv3-ga):",
     "description": "Shown in the About pane"
   },
-  "genericSubmit": {
-    "message": "Saada",
-    "description": "for generic 'Submit' buttons"
+  "supportS6H": {
+    "message": "Teavita filtri veast",
+    "description": "Header of 'Report a filter issue' section in Support pane"
   },
-  "genericApplyChanges": {
-    "message": "Kinnita muudatused",
-    "description": "for generic 'Apply changes' buttons"
+  "supportS3P1": {
+    "message": "Teavita vigasest filtrist kindlate veebilehtedega <span data-url=\"https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue\">uBlockOrigin/uAssets</code> vigade andmebaasi kaudu</span>. <u>Nõuab GitHubi kontot.</u>",
+    "description": "First paragraph of 'Filter issues' section in Support pane"
   },
-  "genericRevert": {
-    "message": "Ennista",
-    "description": "for generic 'Revert' buttons"
+  "supportS6P1S1": {
+    "message": "Vabatahtlike koormamise vältimiseks samade teadetega veenduge, et keegi pole selle murega juba varem pöördunud.",
+    "description": "A paragraph in the filter issue reporter section"
+  },
+  "supportFindSpecificButton": {
+    "message": "Leidke sarnased aruanded",
+    "description": "A clickable link in the filter issue reporter section"
+  },
+  "supportS6URL": {
+    "message": "Veebilehe aadress:",
+    "description": "Label for the URL of the page"
+  },
+  "supportS6Select1": {
+    "message": "Veebileht...",
+    "description": "Label for widget to select type of issue"
+  },
+  "supportS6Select1Option0": {
+    "message": "-- Valige --",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option1": {
+    "message": "Näitab reklaame või reklaami kohatäitjaid",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option2": {
+    "message": "Omab ülekatteid või teisi nuhtlusi",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option3": {
+    "message": "Tuvastab uBO Lite'i",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option4": {
+    "message": "Omab privaatsusega seonduvaid probleeme",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option5": {
+    "message": "Streigib, kui uBO Lite on kasutusel",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option6": {
+    "message": "Avab soovimatuid kaarte või aknaid",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "Põhjustab pahavara, õngitsuskirju",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Checkbox1": {
+    "message": "Märgi veebileht kui „NSFW” (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">„Ohtlik”</a>)",
+    "description": "A checkbox to use for NSFW sites"
+  },
+  "supportReportSpecificButton": {
+    "message": "Loo uus aruanne",
+    "description": "Text for button which open an external webpage in Support pane"
   },
   "firstRunSectionLabel": {
     "message": "Tere tulemast",
@@ -267,12 +211,24 @@
     "message": "Interneti põhjalikum filtreerimine ja enda valitud filtreerimisloenditega täpsem ning üldisem filtreerimine.\n\nVajab kõikide veebilehtede andmete lugemise ja muutmise üldist luba.\n\nÜldine ja põhjalikum filtreerimine võib koormata veebilehe ressursse tavapärasest rohkem.",
     "description": "This describes the 'complete' filtering mode"
   },
+  "noFilteringModeDescription": {
+    "message": "Veebilehtede loend, kus filtreid ei kasutata.",
+    "description": "A short description for the editable field which lists trusted sites"
+  },
+  "noFilteringModePlaceholder": {
+    "message": "[ainult hostinimed]\nnäide.com\nmängud.näide\n...",
+    "description": "Default text for in edit field"
+  },
   "behaviorSectionLabel": {
     "message": "Käitumine",
     "description": "The header text for the 'Behavior' section"
   },
   "autoReloadLabel": {
     "message": "Leht laadib ise uuesti filtreerimisrežiimi muutmisel",
+    "description": "Label for a checkbox in the options page"
+  },
+  "showBlockedCountLabel": {
+    "message": "Kuva tööriistariba ikoonil blokeeritud elementide arv",
     "description": "Label for a checkbox in the options page"
   }
 }

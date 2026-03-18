@@ -1,5 +1,6 @@
 {
   "action": {
+    "default_area": "navbar",
     "default_icon": {
       "16": "img/icon_16.png",
       "32": "img/icon_32.png",
@@ -15,7 +16,10 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "uBOLite@raymondhill.net",
-      "strict_min_version": "113"
+      "strict_min_version": "114.0"
+    },
+    "gecko_android": {
+      "strict_min_version": "114.0"
     }
   },
   "declarative_net_request": {

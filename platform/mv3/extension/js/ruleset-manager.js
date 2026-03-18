@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
+    uBlock Origin Lite - a comprehensive, MV3-compliant content blocker
     Copyright (C) 2022-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -19,15 +19,15 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-/* jshint esversion:11 */
+import {
+    browser,
+    dnr,
+    i18n,
+} from './ext.js';
 
-'use strict';
-
-/******************************************************************************/
-
-import { browser, dnr, i18n } from './ext.js';
 import { fetchJSON } from './fetch.js';
-import { ubolLog } from './utils.js';
+import { getAdminRulesets } from './admin.js';
+import { ubolLog } from './debug.js';
 
 /******************************************************************************/
 
@@ -38,8 +38,8 @@ const REMOVEPARAMS_REALM_START = REGEXES_REALM_END;
 const REMOVEPARAMS_REALM_END = REMOVEPARAMS_REALM_START + RULE_REALM_SIZE;
 const REDIRECT_REALM_START = REMOVEPARAMS_REALM_END;
 const REDIRECT_REALM_END = REDIRECT_REALM_START + RULE_REALM_SIZE;
-const CSP_REALM_START = REDIRECT_REALM_END;
-const CSP_REALM_END = CSP_REALM_START + RULE_REALM_SIZE;
+const MODIFYHEADERS_REALM_START = REDIRECT_REALM_END;
+const MODIFYHEADERS_REALM_END = MODIFYHEADERS_REALM_START + RULE_REALM_SIZE;
 const TRUSTED_DIRECTIVE_BASE_RULE_ID = 8000000;
 
 /******************************************************************************/
@@ -74,16 +74,9 @@ function getDynamicRules() {
 
 /******************************************************************************/
 
-async function updateRegexRules() {
-    const [
-        rulesetDetails,
-        dynamicRules
-    ] = await Promise.all([
-        getEnabledRulesetsDetails(),
-        dnr.getDynamicRules(),
-    ]);
-
+async function pruneInvalidRegexRules(realm, rulesIn) {
     // Avoid testing already tested regexes
+    const dynamicRules = await dnr.getDynamicRules();
     const validRegexSet = new Set(
         dynamicRules.filter(rule =>
             rule.condition?.regexFilter && true || false
@@ -91,8 +84,49 @@ async function updateRegexRules() {
             rule.condition.regexFilter
         )
     );
-    const allRules = [];
+
+    // Validate regex-based rules
     const toCheck = [];
+    const rejectedRegexRules = [];
+    for ( const rule of rulesIn ) {
+        if ( rule.condition?.regexFilter === undefined ) {
+            toCheck.push(true);
+            continue;
+        }
+        const {
+            regexFilter: regex,
+            isUrlFilterCaseSensitive: isCaseSensitive
+        } = rule.condition;
+        if ( validRegexSet.has(regex) ) {
+            toCheck.push(true);
+            continue;
+        }
+        toCheck.push(
+            dnr.isRegexSupported({ regex, isCaseSensitive }).then(result => {
+                if ( result.isSupported ) { return true; }
+                rejectedRegexRules.push(`\t${regex}  ${result.reason}`);
+                return false;
+            })
+        );
+    }
+
+    // Collate results
+    const isValid = await Promise.all(toCheck);
+
+    if ( rejectedRegexRules.length !== 0 ) {
+        ubolLog(
+            `${realm} realm: rejected regexes:\n`,
+            rejectedRegexRules.join('\n')
+        );
+    }
+
+    return rulesIn.filter((v, i) => isValid[i]);
+}
+
+/******************************************************************************/
+
+async function updateRegexRules() {
+    const rulesetDetails = await getEnabledRulesetsDetails();
 
     // Fetch regexes for all enabled rulesets
     const toFetch = [];
@@ -102,49 +136,23 @@ async function updateRegexRules() {
     }
     const regexRulesets = await Promise.all(toFetch);
 
-    // Validate fetched regexes
+    // Collate all regexes rules
+    const allRules = [];
     let regexRuleId = REGEXES_REALM_START;
     for ( const rules of regexRulesets ) {
         if ( Array.isArray(rules) === false ) { continue; }
         for ( const rule of rules ) {
             rule.id = regexRuleId++;
-            const {
-                regexFilter: regex,
-                isUrlFilterCaseSensitive: isCaseSensitive
-            } = rule.condition;
             allRules.push(rule);
-            toCheck.push(
-                validRegexSet.has(regex)
-                    ? { isSupported: true }
-                    : dnr.isRegexSupported({ regex, isCaseSensitive })
-            );
         }
     }
 
-    // Collate results
-    const results = await Promise.all(toCheck);
-    const newRules = [];
-    const rejectedRegexRules = [];
-    for ( let i = 0; i < allRules.length; i++ ) {
-        const rule = allRules[i];
-        const result = results[i];
-        if ( result instanceof Object && result.isSupported ) {
-            newRules.push(rule);
-        } else {
-            rejectedRegexRules.push(rule);
-        }
-    }
-    if ( rejectedRegexRules.length !== 0 ) {
-        ubolLog(
-            'Rejected regexes:',
-            rejectedRegexRules.map(rule => rule.condition.regexFilter)
-        );
-    }
+    const validatedRules = await pruneInvalidRegexRules('regexes', allRules);
 
     // Add validated regex rules to dynamic ruleset without affecting rules
     // outside regex rules realm.
     const dynamicRuleMap = await getDynamicRules();
-    const newRuleMap = new Map(newRules.map(rule => [ rule.id, rule ]));
+    const newRuleMap = new Map(validatedRules.map(rule => [ rule.id, rule ]));
     const addRules = [];
     const removeRuleIds = [];
 
@@ -177,7 +185,9 @@ async function updateRegexRules() {
         ubolLog(`Add ${addRules.length} DNR regex rules`);
     }
 
-    return dnr.updateDynamicRules({ addRules, removeRuleIds });
+    return dnr.updateDynamicRules({ addRules, removeRuleIds }).catch(reason => {
+        console.error(`updateRegexRules() / ${reason}`);
+    });
 }
 
 /******************************************************************************/
@@ -202,21 +212,23 @@ async function updateRemoveparamRules() {
     const removeparamRulesets = await Promise.all(toFetch);
 
     // Removeparam rules can only be enforced with omnipotence
-    const newRules = [];
+    const allRules = [];
     if ( hasOmnipotence ) {
         let removeparamRuleId = REMOVEPARAMS_REALM_START;
         for ( const rules of removeparamRulesets ) {
             if ( Array.isArray(rules) === false ) { continue; }
             for ( const rule of rules ) {
                 rule.id = removeparamRuleId++;
-                newRules.push(rule);
+                allRules.push(rule);
             }
         }
     }
 
+    const validatedRules = await pruneInvalidRegexRules('removeparam', allRules);
+
     // Add removeparam rules to dynamic ruleset without affecting rules
     // outside removeparam rules realm.
-    const newRuleMap = new Map(newRules.map(rule => [ rule.id, rule ]));
+    const newRuleMap = new Map(validatedRules.map(rule => [ rule.id, rule ]));
     const addRules = [];
     const removeRuleIds = [];
 
@@ -249,7 +261,9 @@ async function updateRemoveparamRules() {
         ubolLog(`Add ${addRules.length} DNR removeparam rules`);
     }
 
-    return dnr.updateDynamicRules({ addRules, removeRuleIds });
+    return dnr.updateDynamicRules({ addRules, removeRuleIds }).catch(reason => {
+        console.error(`updateRemoveparamRules() / ${reason}`);
+    });
 }
 
 /******************************************************************************/
@@ -274,21 +288,23 @@ async function updateRedirectRules() {
     const redirectRulesets = await Promise.all(toFetch);
 
     // Redirect rules can only be enforced with omnipotence
-    const newRules = [];
+    const allRules = [];
     if ( hasOmnipotence ) {
         let redirectRuleId = REDIRECT_REALM_START;
         for ( const rules of redirectRulesets ) {
             if ( Array.isArray(rules) === false ) { continue; }
             for ( const rule of rules ) {
                 rule.id = redirectRuleId++;
-                newRules.push(rule);
+                allRules.push(rule);
             }
         }
     }
 
+    const validatedRules = await pruneInvalidRegexRules('redirect', allRules);
+
     // Add redirect rules to dynamic ruleset without affecting rules
     // outside redirect rules realm.
-    const newRuleMap = new Map(newRules.map(rule => [ rule.id, rule ]));
+    const newRuleMap = new Map(validatedRules.map(rule => [ rule.id, rule ]));
     const addRules = [];
     const removeRuleIds = [];
 
@@ -321,12 +337,14 @@ async function updateRedirectRules() {
         ubolLog(`Add ${addRules.length} DNR redirect rules`);
     }
 
-    return dnr.updateDynamicRules({ addRules, removeRuleIds });
+    return dnr.updateDynamicRules({ addRules, removeRuleIds }).catch(reason => {
+        console.error(`updateRedirectRules() / ${reason}`);
+    });
 }
 
 /******************************************************************************/
 
-async function updateCspRules() {
+async function updateModifyHeadersRules() {
     const [
         hasOmnipotence,
         rulesetDetails,
@@ -337,36 +355,38 @@ async function updateCspRules() {
         getDynamicRules(),
     ]);
 
-    // Fetch csp rules for all enabled rulesets
+    // Fetch modifyHeaders rules for all enabled rulesets
     const toFetch = [];
     for ( const details of rulesetDetails ) {
-        if ( details.rules.csp === 0 ) { continue; }
-        toFetch.push(fetchJSON(`/rulesets/csp/${details.id}`));
+        if ( details.rules.modifyHeaders === 0 ) { continue; }
+        toFetch.push(fetchJSON(`/rulesets/modify-headers/${details.id}`));
     }
-    const cspRulesets = await Promise.all(toFetch);
+    const rulesets = await Promise.all(toFetch);
 
     // Redirect rules can only be enforced with omnipotence
-    const newRules = [];
+    const allRules = [];
     if ( hasOmnipotence ) {
-        let cspRuleId = CSP_REALM_START;
-        for ( const rules of cspRulesets ) {
+        let ruleId = MODIFYHEADERS_REALM_START;
+        for ( const rules of rulesets ) {
             if ( Array.isArray(rules) === false ) { continue; }
             for ( const rule of rules ) {
-                rule.id = cspRuleId++;
-                newRules.push(rule);
+                rule.id = ruleId++;
+                allRules.push(rule);
             }
         }
     }
 
-    // Add csp rules to dynamic ruleset without affecting rules
-    // outside csp rules realm.
-    const newRuleMap = new Map(newRules.map(rule => [ rule.id, rule ]));
+    const validatedRules = await pruneInvalidRegexRules('modify-headers', allRules);
+
+    // Add modifyHeaders rules to dynamic ruleset without affecting rules
+    // outside modifyHeaders realm.
+    const newRuleMap = new Map(validatedRules.map(rule => [ rule.id, rule ]));
     const addRules = [];
     const removeRuleIds = [];
 
     for ( const oldRule of dynamicRuleMap.values() ) {
-        if ( oldRule.id < CSP_REALM_START ) { continue; }
-        if ( oldRule.id >= CSP_REALM_END ) { continue; }
+        if ( oldRule.id < MODIFYHEADERS_REALM_START ) { continue; }
+        if ( oldRule.id >= MODIFYHEADERS_REALM_END ) { continue; }
         const newRule = newRuleMap.get(oldRule.id);
         if ( newRule === undefined ) {
             removeRuleIds.push(oldRule.id);
@@ -387,13 +407,15 @@ async function updateCspRules() {
     if ( addRules.length === 0 && removeRuleIds.length === 0 ) { return; }
 
     if ( removeRuleIds.length !== 0 ) {
-        ubolLog(`Remove ${removeRuleIds.length} DNR csp rules`);
+        ubolLog(`Remove ${removeRuleIds.length} DNR modifyHeaders rules`);
     }
     if ( addRules.length !== 0 ) {
-        ubolLog(`Add ${addRules.length} DNR csp rules`);
+        ubolLog(`Add ${addRules.length} DNR modifyHeaders rules`);
     }
 
-    return dnr.updateDynamicRules({ addRules, removeRuleIds });
+    return dnr.updateDynamicRules({ addRules, removeRuleIds }).catch(reason => {
+        console.error(`updateModifyHeadersRules() / ${reason}`);
+    });
 }
 
 /******************************************************************************/
@@ -405,14 +427,14 @@ async function updateDynamicRules() {
         updateRegexRules(),
         updateRemoveparamRules(),
         updateRedirectRules(),
-        updateCspRules(),
+        updateModifyHeadersRules(),
     ]);
 }
 
 /******************************************************************************/
 
 async function defaultRulesetsFromLanguage() {
-    const out = [ 'default', 'cname-trackers' ];
+    const out = await dnr.getEnabledRulesets();
 
     const dropCountry = lang => {
         const pos = lang.indexOf('-');
@@ -444,7 +466,22 @@ async function defaultRulesetsFromLanguage() {
 
 async function enableRulesets(ids) {
     const afterIds = new Set(ids);
-    const beforeIds = new Set(await dnr.getEnabledRulesets());
+    const [ beforeIds, adminIds, rulesetDetails ] = await Promise.all([
+        dnr.getEnabledRulesets().then(ids => new Set(ids)),
+        getAdminRulesets(),
+        getRulesetDetails(),
+    ]);
+
+    for ( const token of adminIds ) {
+        const c0 = token.charAt(0);
+        const id = token.slice(1);
+        if ( c0 === '+' ) {
+            afterIds.add(id);
+        } else if ( c0 === '-' ) {
+            afterIds.delete(id);
+        }
+    }
+
     const enableRulesetSet = new Set();
     const disableRulesetSet = new Set();
     for ( const id of afterIds ) {
@@ -456,13 +493,8 @@ async function enableRulesets(ids) {
         disableRulesetSet.add(id);
     }
 
-    if ( enableRulesetSet.size === 0 && disableRulesetSet.size === 0 ) {
-        return;
-    }
-
     // Be sure the rulesets to enable/disable do exist in the current version,
     // otherwise the API throws.
-    const rulesetDetails = await getRulesetDetails();
     for ( const id of enableRulesetSet ) {
         if ( rulesetDetails.has(id) ) { continue; }
         enableRulesetSet.delete(id);
@@ -471,6 +503,11 @@ async function enableRulesets(ids) {
         if ( rulesetDetails.has(id) ) { continue; }
         disableRulesetSet.delete(id);
     }
+
+    if ( enableRulesetSet.size === 0 && disableRulesetSet.size === 0 ) {
+        return;
+    }
+
     const enableRulesetIds = Array.from(enableRulesetSet);
     const disableRulesetIds = Array.from(disableRulesetSet);
 
@@ -481,7 +518,7 @@ async function enableRulesets(ids) {
         ubolLog(`Disable ruleset: ${disableRulesetIds}`);
     }
     await dnr.updateEnabledRulesets({ enableRulesetIds, disableRulesetIds });
-    
+
     return updateDynamicRules();
 }
 

@@ -452,11 +452,11 @@
     "description": "This will cause uBO to ignore all generic cosmetic filters."
   },
   "3pIgnoreGenericCosmeticFiltersInfo": {
-    "message": "Generic cosmetic filters are those cosmetic filters which are meant to apply on all web sites. Enabling this option will eliminate the memory and CPU overhead added to web pages as a result of handling generic cosmetic filters.\n\nIt is recommended to enable this option on less powerful devices.",
+    "message": "Ĝenerikaj kozmetikaj filtriloj estas tiuj kozmetikaj filtriloj, kiuj estas intencitaj esti aplikitaj sur ĉiuj retejoj. Aktivigante tiun opcion, oni eliminigos la memoran kaj procesorecan ŝarĝon, kiu estas aldonita al retpaĝoj pro la pritraktado de ĝenerikaj kozmetikaj filtriloj.\n\nEstas rekomendite aktivigi tiun opcion sur aparatoj ne estas potencaj.",
     "description": "Describes the purpose of the 'Ignore generic cosmetic filters' feature."
   },
   "3pSuspendUntilListsAreLoaded": {
-    "message": "Suspend network activity until all filter lists are loaded",
+    "message": "Suspendu retan aktivecon ĝis ĉiuj filtraj listoj estas ŝargitaj.",
     "description": "A checkbox in the 'Filter lists' pane"
   },
   "3pListsOfBlockedHostsHeader": {
@@ -481,6 +481,14 @@
   },
   "3pGroupMalware": {
     "message": "Domajno kun fiprogramaro",
+    "description": "Filter lists section name"
+  },
+  "3pGroupSocial": {
+    "message": "Socialaj fenestraĵoj",
+    "description": "Filter lists section name"
+  },
+  "3pGroupCookies": {
+    "message": "Avizoj de kuketoj",
     "description": "Filter lists section name"
   },
   "3pGroupAnnoyances": {
@@ -527,17 +535,25 @@
     "message": "Reta eraro malhelpis ĝisdatigon de la resurso.",
     "description": "used as a tooltip for error icon beside a list"
   },
-  "1pFormatHint": {
-    "message": "Unu filtrilo por ĉiu linio. Filtrilo povas esti ordinara gastignomo aŭ Adblock Plus-kongrua filtrilo. Prefiksitaj linioj kun &lsquo;!&rsquo; estos ignorataj.",
-    "description": "Short information about how to create custom filters"
+  "1pTrustWarning": {
+    "message": "Ne aldonu filtrilojn el ne fidindaj fontoj.",
+    "description": "Warning against copy-pasting filters from random sources"
+  },
+  "1pEnableMyFiltersLabel": {
+    "message": "Ŝalti miajn proprajn filtrilojn",
+    "description": "Label for the checkbox use to enable/disable 'My filters' list"
+  },
+  "1pTrustMyFiltersLabel": {
+    "message": "Permesi proprajn filtrilojn, kiuj postulas fidon",
+    "description": "Label for the checkbox use to trust the content of 'My filters' list"
   },
   "1pImport": {
     "message": "Importi kaj postaldoni",
-    "description": "English: Import and append"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExport": {
     "message": "Eksporti",
-    "description": "English: Export"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExportFilename": {
     "message": "miaj-statikaj-ublock-filtriloj_{{datetime}}.txt",
@@ -581,7 +597,7 @@
   },
   "rulesExport": {
     "message": "Eksporti al dosiero",
-    "description": ""
+    "description": "Button in the 'My rules' pane"
   },
   "rulesDefaultFileName": {
     "message": "miaj-dinamikaj-ublock-reguloj_{{datetime}}.txt",
@@ -617,11 +633,11 @@
   },
   "whitelistImport": {
     "message": "Importi kaj postaldoni",
-    "description": "English: Import and append"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExport": {
     "message": "Eksporti",
-    "description": "English: Export"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExportFilename": {
     "message": "mia-ublock-blanklisto_{{datetime}}.txt",
@@ -820,15 +836,15 @@
     "description": "Below this sentence, the filter list(s) in which the filter was found"
   },
   "loggerStaticFilteringFinderSentence2": {
-    "message": "Static filter could not be found in any of the currently enabled filter lists",
+    "message": "Stata filtro ne povis esti trovita en iu ajn el la nuntempe aktivigitaj filtro-listoj.",
     "description": "Message to show when a filter cannot be found in any filter lists"
   },
   "loggerSettingDiscardPrompt": {
-    "message": "Logger entries which do not fulfill all three conditions below will be automatically discarded:",
+    "message": "Logeto-enskriboj, kiuj ne plenumas ĉiujn tri kondiĉojn sube, estos aŭtomate forĵetitaj:",
     "description": "Logger setting: A sentence to describe the purpose of the settings below"
   },
   "loggerSettingPerEntryMaxAge": {
-    "message": "Preserve entries from the last {{input}} minutes",
+    "message": "Konservi enigojn ekde la lastaj {{input}} minutoj",
     "description": "A logger setting"
   },
   "loggerSettingPerTabMaxLoads": {
@@ -993,6 +1009,10 @@
   },
   "supportS6Select1Option6": {
     "message": "Malfermas nedeziratajn langetojn aŭ fenestrojn",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "Leads to badware, phishing",
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Checkbox1": {
@@ -1171,6 +1191,10 @@
     "message": "Procedi",
     "description": "Button text to navigate to the blocked page"
   },
+  "docblockedRedirectPrompt": {
+    "message": "The blocked page wants to redirect to another site. If you choose to proceed, you will navigate directly to: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
   "cloudPush": {
     "message": "Eksporti al nuba konservado",
     "description": "tooltip"
@@ -1246,6 +1270,10 @@
   "toggleCosmeticFiltering": {
     "message": "Baskuligi ornaman filtradon",
     "description": "Label for keyboard shortcut used to toggle cosmetic filtering"
+  },
+  "toggleJavascript": {
+    "message": "Baskuli Javascript-kodoj",
+    "description": "Label for keyboard shortcut used to toggle no-scripting switch"
   },
   "relaxBlockingMode": {
     "message": "Malstriktigi blokadan reĝimon",

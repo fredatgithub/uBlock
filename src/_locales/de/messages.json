@@ -168,7 +168,7 @@
     "description": "Tooltip for the no-cosmetic-filtering per-site switch"
   },
   "popupTipNoRemoteFonts": {
-    "message": "Externe Schriftarten für diese Website zulassen/blockieren",
+    "message": "Externe Schriftarten für diese Website blockieren/zulassen",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
   "popupTipNoRemoteFonts1": {
@@ -320,7 +320,7 @@
     "description": "English: Hide placeholders of blocked elements"
   },
   "settingsIconBadgePrompt": {
-    "message": "Anzahl der blockierten Anfragen auf dem Symbol anzeigen",
+    "message": "Anzahl der blockierten Anfragen auf dem Symbol in der Symbolleiste anzeigen",
     "description": "English: Show the number of blocked requests on the icon"
   },
   "settingsTooltipsPrompt": {
@@ -344,7 +344,7 @@
     "description": "Label for checkbox to enable a custom dark theme"
   },
   "settingsThemeAccent0Label": {
-    "message": "Benutzerdefinierte Akzentfarbe",
+    "message": "Personalisierte Akzentfarbe",
     "description": "Label for checkbox to pick an accent color"
   },
   "settingsCloudStorageEnabledPrompt": {
@@ -483,6 +483,14 @@
     "message": "Schutz vor Schadsoftware, Sicherheit",
     "description": "Filter lists section name"
   },
+  "3pGroupSocial": {
+    "message": "Soziale Widgets",
+    "description": "Filter lists section name"
+  },
+  "3pGroupCookies": {
+    "message": "Cookie-Hinweise",
+    "description": "Filter lists section name"
+  },
   "3pGroupAnnoyances": {
     "message": "Belästigungen",
     "description": "Filter lists section name"
@@ -496,7 +504,7 @@
     "description": "Filter lists section name"
   },
   "3pGroupCustom": {
-    "message": "Benutzerdefiniert",
+    "message": "Eigene Filterlisten",
     "description": "Filter lists section name"
   },
   "3pImport": {
@@ -527,17 +535,25 @@
     "message": "Ein Netzwerkfehler verhinderte die Aktualisierung der Ressource.",
     "description": "used as a tooltip for error icon beside a list"
   },
-  "1pFormatHint": {
-    "message": "Ein Filter pro Zeile. Ein Filter kann ein einfacher Hostname oder ein EasyList-kompatibler Filter sein. Zeilen mit vorangestelltem <code>!</code> werden ignoriert.",
-    "description": "Short information about how to create custom filters"
+  "1pTrustWarning": {
+    "message": "Verwenden Sie keine Filter aus unseriösen Quellen.",
+    "description": "Warning against copy-pasting filters from random sources"
+  },
+  "1pEnableMyFiltersLabel": {
+    "message": "Eigene Filter aktivieren",
+    "description": "Label for the checkbox use to enable/disable 'My filters' list"
+  },
+  "1pTrustMyFiltersLabel": {
+    "message": "Eigene Filter zulassen, die Vertrauen erfordern",
+    "description": "Label for the checkbox use to trust the content of 'My filters' list"
   },
   "1pImport": {
     "message": "Importieren und anfügen …",
-    "description": "English: Import and append"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExport": {
     "message": "Exportieren …",
-    "description": "English: Export"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExportFilename": {
     "message": "ublock-statische-filter_{{datetime}}.txt",
@@ -581,7 +597,7 @@
   },
   "rulesExport": {
     "message": "In Datei exportieren …",
-    "description": ""
+    "description": "Button in the 'My rules' pane"
   },
   "rulesDefaultFileName": {
     "message": "ublock-dynamische-regeln_{{datetime}}.txt",
@@ -617,11 +633,11 @@
   },
   "whitelistImport": {
     "message": "Importieren und anfügen …",
-    "description": "English: Import and append"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExport": {
     "message": "Exportieren …",
-    "description": "English: Export"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExportFilename": {
     "message": "ublock-ausnahmeregeln_{{datetime}}.txt",
@@ -884,11 +900,11 @@
     "description": "Text for button which open an external webpage in Support pane"
   },
   "supportReportSpecificButton": {
-    "message": "Neuen Bericht erstellen",
+    "message": "Neue Meldung erstellen",
     "description": "Text for button which open an external webpage in Support pane"
   },
   "supportFindSpecificButton": {
-    "message": "Ähnliche Berichte suchen",
+    "message": "Ähnliche Meldungen finden",
     "description": "A clickable link in the filter issue reporter section"
   },
   "supportS1H": {
@@ -940,7 +956,7 @@
     "description": "First paragraph of 'Troubleshooting Information' section in Support pane"
   },
   "supportS5P2": {
-    "message": "<b>Wichtig:</b> Potenziell private oder sensible Informationen werden standardmäßig geschwärzt. Ungeschwärzte Informationen können die Lösung eines Problems erschweren.",
+    "message": "<b>Wichtig:</b> Potenziell private oder sensible Informationen werden standardmäßig unkenntlich gemacht. Unkenntlich gemachte Informationen können das Lösen eines Problems erschweren.",
     "description": "Second paragraph of 'Troubleshooting Information' section in Support pane"
   },
   "supportS6H": {
@@ -972,11 +988,11 @@
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Select1Option1": {
-    "message": "Zeigt Werbung oder Anzeigenreste",
+    "message": "Zeigt Werbung oder Werbereste",
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Select1Option2": {
-    "message": "Enthält Überdeckungen oder andere Belästigungen",
+    "message": "Hat Überdeckungen oder andere Belästigungen",
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Select1Option3": {
@@ -995,16 +1011,20 @@
     "message": "Öffnet unerwünschte Tabs oder Fenster",
     "description": "An entry in the widget used to select the type of issue"
   },
+  "supportS6Select1Option7": {
+    "message": "Führt zu Schadsoftware, Phishing",
+    "description": "An entry in the widget used to select the type of issue"
+  },
   "supportS6Checkbox1": {
     "message": "Webseite als »NSFW« kennzeichnen (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">»Unpassend für den Arbeitsplatz«</a>)",
     "description": "A checkbox to use for NSFW sites"
   },
   "supportRedact": {
-    "message": "Überarbeiten",
+    "message": "Unkenntlich machen",
     "description": "Text for 'Redact' button"
   },
   "supportUnredact": {
-    "message": "Überarbeitung widerrufen",
+    "message": "Kenntlich machen",
     "description": "Text for 'Unredact' button"
   },
   "aboutPrivacyPolicy": {
@@ -1080,7 +1100,7 @@
     "description": "English: Network error: {{msg}}"
   },
   "subscriberConfirm": {
-    "message": "Folgende URL zu Ihren benutzerdefinierten Filterlisten hinzufügen?\n\nTitel: »{{title}}«\nURL: {{url}}",
+    "message": "Folgende URL zu den eigenen Filterlisten hinzufügen?\n\nTitel: »{{title}}«\nURL: {{url}}",
     "description": "No longer used"
   },
   "subscribeButton": {
@@ -1171,6 +1191,10 @@
     "message": "Fortfahren",
     "description": "Button text to navigate to the blocked page"
   },
+  "docblockedRedirectPrompt": {
+    "message": "Die blockierte Seite möchte zu einer anderen Website weiterleiten. Beim Fortfahren wird folgende Seite aufgerufen: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
   "cloudPush": {
     "message": "In den Cloud-Speicher exportieren",
     "description": "tooltip"
@@ -1246,6 +1270,10 @@
   "toggleCosmeticFiltering": {
     "message": "Kosmetisches Filtern ein-/ausschalten",
     "description": "Label for keyboard shortcut used to toggle cosmetic filtering"
+  },
+  "toggleJavascript": {
+    "message": "JavaScript aktivieren/deaktivieren",
+    "description": "Label for keyboard shortcut used to toggle no-scripting switch"
   },
   "relaxBlockingMode": {
     "message": "Blockiermodus lockern",

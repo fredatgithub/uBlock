@@ -483,6 +483,14 @@
     "message": "Malwaredomeinen",
     "description": "Filter lists section name"
   },
+  "3pGroupSocial": {
+    "message": "Sosjale widgets",
+    "description": "Filter lists section name"
+  },
+  "3pGroupCookies": {
+    "message": "Cookiemeldingen",
+    "description": "Filter lists section name"
+  },
   "3pGroupAnnoyances": {
     "message": "Ungeriif",
     "description": "Filter lists section name"
@@ -527,17 +535,25 @@
     "message": "In netwurkflater hat opkeard dat de boarne bywurke waard.",
     "description": "used as a tooltip for error icon beside a list"
   },
-  "1pFormatHint": {
-    "message": "Ien filter per rigel. In filter kin in gewoane hostnamme of in Adblock Plus-kompatibel filter wêze. Rigels begjinnend mei <code>!</code> wurde negearre.",
-    "description": "Short information about how to create custom filters"
+  "1pTrustWarning": {
+    "message": "Foegje gjin filters fan ûnbekende boarnen ta.",
+    "description": "Warning against copy-pasting filters from random sources"
+  },
+  "1pEnableMyFiltersLabel": {
+    "message": "Myn oanpaste filters ynskeakelje",
+    "description": "Label for the checkbox use to enable/disable 'My filters' list"
+  },
+  "1pTrustMyFiltersLabel": {
+    "message": "Oanpaste filters dy’t fertrouwen fereaskje tastean",
+    "description": "Label for the checkbox use to trust the content of 'My filters' list"
   },
   "1pImport": {
     "message": "Ymportearje en tafoegje",
-    "description": "English: Import and append"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExport": {
     "message": "Eksportearje",
-    "description": "English: Export"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExportFilename": {
     "message": "myn-ublock-statyske-filters_{{datetime}}.txt",
@@ -581,7 +597,7 @@
   },
   "rulesExport": {
     "message": "Nei bestân eksportearje",
-    "description": ""
+    "description": "Button in the 'My rules' pane"
   },
   "rulesDefaultFileName": {
     "message": "myn-ublock-dynamyske-rigels_{{datetime}}.txt",
@@ -617,11 +633,11 @@
   },
   "whitelistImport": {
     "message": "Ymportearje en tafoegje",
-    "description": "English: Import and append"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExport": {
     "message": "Eksportearje",
-    "description": "English: Export"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExportFilename": {
     "message": "myn-ublock-whitelist_{{datetime}}.txt",
@@ -995,6 +1011,10 @@
     "message": "Iepenet net-winske ljepblêden of finsters",
     "description": "An entry in the widget used to select the type of issue"
   },
+  "supportS6Select1Option7": {
+    "message": "Liedt ta badware, phishing",
+    "description": "An entry in the widget used to select the type of issue"
+  },
   "supportS6Checkbox1": {
     "message": "De webside labelje as ‘NSFW’ (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">‘Not Safe For Work’</a>)",
     "description": "A checkbox to use for NSFW sites"
@@ -1171,6 +1191,10 @@
     "message": "Trochgean",
     "description": "Button text to navigate to the blocked page"
   },
+  "docblockedRedirectPrompt": {
+    "message": "De blokkearre side wol nei in oare website trochferwize. As jo fierder gean, wurdt de folgjende side oproppen: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
   "cloudPush": {
     "message": "Eksportearje nei cloudûnthâld",
     "description": "tooltip"
@@ -1246,6 +1270,10 @@
   "toggleCosmeticFiltering": {
     "message": "Kosmetyske filters yn-/útskeakelje",
     "description": "Label for keyboard shortcut used to toggle cosmetic filtering"
+  },
+  "toggleJavascript": {
+    "message": "JavaScript yn-/útskeakelje",
+    "description": "Label for keyboard shortcut used to toggle no-scripting switch"
   },
   "relaxBlockingMode": {
     "message": "Blokkearringsmodus beheine",

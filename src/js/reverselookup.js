@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
+    uBlock Origin - a comprehensive, efficient content blocker
     Copyright (C) 2015-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -62,7 +62,7 @@ const stopWorker = function() {
 };
 
 const workerTTLTimer = vAPI.defer.create(stopWorker);
-const workerTTL = { min: 5 };
+const workerTTL = { min: 1.5 };
 
 const initWorker = function() {
     if ( worker === null ) {
@@ -130,9 +130,9 @@ const fromNetFilter = async function(rawFilter) {
 
     const writer = new CompiledListWriter();
     const parser = new sfp.AstFilterParser({
-        expertMode: true,
-        nativeCssHas: vAPI.webextFlavor.env.includes('native_css_has'),
+        trustedSource: true,
         maxTokenLength: staticNetFilteringEngine.MAX_TOKEN_LENGTH,
+        nativeCssHas: vAPI.webextFlavor.env.includes('native_css_has'),
     });
     parser.parse(rawFilter);
 
@@ -168,7 +168,7 @@ const fromExtendedFilter = async function(details) {
     const hostname = hostnameFromURI(details.url);
 
     const parser = new sfp.AstFilterParser({
-        expertMode: true,
+        trustedSource: true,
         nativeCssHas: vAPI.webextFlavor.env.includes('native_css_has'),
     });
     parser.parse(details.rawFilter);

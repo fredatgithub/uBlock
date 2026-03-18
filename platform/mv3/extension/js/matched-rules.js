@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
+    uBlock Origin Lite - a comprehensive, MV3-compliant content blocker
     Copyright (C) 2014-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -19,15 +19,30 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-'use strict';
-
-import { runtime } from './ext.js';
-import { dom } from './dom.js';
+import { dom, qs$ } from './dom.js';
+import { sendMessage } from './ext.js';
 
 /******************************************************************************/
 
-(async ( ) => {
-    const manifest = runtime.getManifest();
+const url = new URL(document.location.href);
+const tabId = parseInt(url.searchParams.get('tab'), 10) || 0;
 
-    dom.text('#aboutNameVer', `${manifest.name} ${manifest.version}`);
-})();
+const entries = await sendMessage({
+    what: 'getMatchedRules',
+    tabId,
+});
+
+const fragment = new DocumentFragment();
+const template = qs$('#matchInfo');
+for ( const entry of (entries || []) ) {
+    if ( entry instanceof Object === false ) { continue; }
+    const row = template.content.cloneNode(true);
+    qs$(row, '.requestInfo').textContent = JSON.stringify(entry.request, null, 2);
+    qs$(row, '.ruleInfo').textContent = JSON.stringify(entry.rule, null, 2);
+    fragment.append(row);
+}
+
+dom.empty('#matchedEntries');
+qs$('#matchedEntries').append(fragment);
+
+/******************************************************************************/

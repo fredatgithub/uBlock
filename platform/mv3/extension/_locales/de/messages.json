@@ -15,32 +15,8 @@
     "message": "uBO Lite — Dashboard",
     "description": "English: uBO Lite — Dashboard"
   },
-  "dashboardUnsavedWarning": {
-    "message": "Warnung! Nicht gespeicherte Änderungen",
-    "description": "A warning in the dashboard when navigating away from unsaved changes"
-  },
-  "dashboardUnsavedWarningStay": {
-    "message": "Bleiben",
-    "description": "Label for button to prevent navigating away from unsaved changes"
-  },
-  "dashboardUnsavedWarningIgnore": {
-    "message": "Ignorieren",
-    "description": "Label for button to ignore unsaved changes"
-  },
   "settingsPageName": {
     "message": "Einstellungen",
-    "description": "appears as tab name in dashboard"
-  },
-  "3pPageName": {
-    "message": "Filterlisten",
-    "description": "appears as tab name in dashboard"
-  },
-  "1pPageName": {
-    "message": "Meine Filter",
-    "description": "appears as tab name in dashboard"
-  },
-  "whitelistPageName": {
-    "message": "Ausnahmeregeln",
     "description": "appears as tab name in dashboard"
   },
   "aboutPageName": {
@@ -55,73 +31,21 @@
     "message": "Filtermodus",
     "description": "Label in the popup panel for the current filtering mode"
   },
-  "popupTipDashboard": {
-    "message": "Dashboard öffnen",
-    "description": "English: Click to open the dashboard"
-  },
-  "popupTipZapper": {
-    "message": "Element temporär entfernen",
-    "description": "Tooltip for the element-zapper icon in the popup panel"
-  },
-  "popupTipPicker": {
-    "message": "Element dauerhaft entfernen",
-    "description": "English: Enter element picker mode"
-  },
   "popupTipReport": {
     "message": "Ein Problem mit dieser Website melden",
     "description": "Tooltip used for the 'chat' icon in the panel"
   },
-  "popupTipSaveRules": {
-    "message": "Hier klicken, um die Änderungen dauerhaft zu übernehmen.",
-    "description": "Tooltip when hovering over the padlock in the dynamic filtering pane."
-  },
-  "popupTipRevertRules": {
-    "message": "Hier klicken, um die Änderungen rückgängig zu machen.",
-    "description": "Tooltip when hovering over the eraser in the dynamic filtering pane."
+  "popupTipDashboard": {
+    "message": "Dashboard öffnen",
+    "description": "English: Click to open the dashboard"
   },
   "popupMoreButton": {
     "message": "Mehr",
     "description": "Label to be used to show popup panel sections"
   },
-  "popupGrantGreatPowers": {
-    "message": "Klicken Sie hier, um uBO Lite erweiterte Berechtigungen für diese Website zu erteilen.\nErweiterte Berechtigungen ermöglichen ein effektiveres Blockieren von Inhalten.",
-    "description": "Label to be used to show popup panel sections"
-  },
-  "popupRevokeGreatPowers": {
-    "message": "Hier klicken, um erweiterte Berechtigungen für diese Website zu widerrufen.",
-    "description": "Label to be used to show popup panel sections"
-  },
   "popupLessButton": {
     "message": "Weniger",
     "description": "Label to be used to hide popup panel sections"
-  },
-  "settingsIconBadgePrompt": {
-    "message": "Anzahl der blockierten Anfragen auf dem Symbol anzeigen",
-    "description": "English: Show the number of blocked requests on the icon"
-  },
-  "settingsAppearance": {
-    "message": "Erscheinungsbild",
-    "description": "Section for controlling user interface appearance"
-  },
-  "settingsThemeLabel": {
-    "message": "Farbschema",
-    "description": "Label for checkbox to enable a custom dark theme"
-  },
-  "settingsThemeAccent0Label": {
-    "message": "Benutzerdefinierte Akzentfarbe",
-    "description": "Label for checkbox to pick an accent color"
-  },
-  "settingsNoCSPReportsPrompt": {
-    "message": "CSP-Berichte blockieren",
-    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
-  },
-  "omnipotenceLabel": {
-    "message": "Erweitertes Filtern auf allen Websites aktivieren",
-    "description": "Header for a ruleset section in 'Filter lists pane'"
-  },
-  "omnipotenceLegend": {
-    "message": "uBO Lite kann das erweiterte Filtern nur dann auf eine bestimmte Website anwenden, wenn Sie der Erweiterung ausdrücklich die Berechtigung erteilen, Daten auf dieser Website zu ändern. Mit dieser Einstellung können Sie Berechtigungen für das erweiterte Filtern für alle Websites auf einmal erteilen.",
-    "description": "Header for a ruleset section in 'Filter lists pane'"
   },
   "3pGroupDefault": {
     "message": "Standard",
@@ -151,38 +75,6 @@
     "message": "Regionen, Sprachen",
     "description": "Header for a ruleset section in 'Filter lists pane'"
   },
-  "1pFormatHint": {
-    "message": "Ein Filter pro Zeile. Ein Filter kann ein einfacher Hostname oder ein EasyList-kompatibler Filter sein. Zeilen mit vorangestelltem <code>!</code> werden ignoriert.",
-    "description": "Short information about how to create custom filters"
-  },
-  "1pImport": {
-    "message": "Importieren und anfügen …",
-    "description": "English: Import and append"
-  },
-  "1pExport": {
-    "message": "Exportieren …",
-    "description": "English: Export"
-  },
-  "1pExportFilename": {
-    "message": "ublock-statische-filter_{{datetime}}.txt",
-    "description": "English: my-ublock-static-filters_{{datetime}}.txt"
-  },
-  "whitelistPrompt": {
-    "message": "Ausnahmeregeln bestimmen, auf welchen Webseiten uBO Lite deaktiviert werden soll. Ein Eintrag pro Zeile.",
-    "description": "A concise description of the 'Trusted sites' pane."
-  },
-  "whitelistImport": {
-    "message": "Importieren und anfügen …",
-    "description": "English: Import and append"
-  },
-  "whitelistExport": {
-    "message": "Exportieren …",
-    "description": "English: Export"
-  },
-  "whitelistExportFilename": {
-    "message": "ublock-ausnahmeregeln_{{datetime}}.txt",
-    "description": "The default filename to use for import/export purpose"
-  },
   "aboutChangelog": {
     "message": "Änderungsprotokoll",
     "description": ""
@@ -211,17 +103,69 @@
     "message": "Externe Abhängigkeiten (GPLv3-kompatibel):",
     "description": "Shown in the About pane"
   },
-  "genericSubmit": {
-    "message": "Absenden",
-    "description": "for generic 'Submit' buttons"
+  "supportS6H": {
+    "message": "Ein Filterproblem melden",
+    "description": "Header of 'Report a filter issue' section in Support pane"
   },
-  "genericApplyChanges": {
-    "message": "Änderungen übernehmen",
-    "description": "for generic 'Apply changes' buttons"
+  "supportS3P1": {
+    "message": "Bitte melden Sie Filterprobleme mit bestimmten Websites an den <span data-url=\"https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue\"><code>uBlockOrigin/uAssets</code> Issue Tracker</span>. <u>Erfordert ein GitHub-Konto.</u>",
+    "description": "First paragraph of 'Filter issues' section in Support pane"
   },
-  "genericRevert": {
-    "message": "Rückgängig machen",
-    "description": "for generic 'Revert' buttons"
+  "supportS6P1S1": {
+    "message": "Um die Freiwilligen nicht mit doppelten Meldungen zu belasten, vergewissern Sie sich bitte, dass das Problem nicht schon einmal gemeldet wurde.",
+    "description": "A paragraph in the filter issue reporter section"
+  },
+  "supportFindSpecificButton": {
+    "message": "Ähnliche Meldungen finden",
+    "description": "A clickable link in the filter issue reporter section"
+  },
+  "supportS6URL": {
+    "message": "Adresse der Webseite:",
+    "description": "Label for the URL of the page"
+  },
+  "supportS6Select1": {
+    "message": "Die Webseite …",
+    "description": "Label for widget to select type of issue"
+  },
+  "supportS6Select1Option0": {
+    "message": "-- Einen Eintrag auswählen --",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option1": {
+    "message": "Zeigt Werbung oder Werbereste",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option2": {
+    "message": "Hat Überdeckungen oder andere Belästigungen",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option3": {
+    "message": "Erkennt uBO Lite",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option4": {
+    "message": "Hat Datenschutzprobleme",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option5": {
+    "message": "Funktioniert nicht richtig, wenn uBO Lite aktiviert ist",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option6": {
+    "message": "Öffnet unerwünschte Tabs oder Fenster",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "Führt zu Schadsoftware, Phishing",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Checkbox1": {
+    "message": "Webseite als »NSFW« kennzeichnen (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">»Unpassend für den Arbeitsplatz«</a>)",
+    "description": "A checkbox to use for NSFW sites"
+  },
+  "supportReportSpecificButton": {
+    "message": "Neue Meldung erstellen",
+    "description": "Text for button which open an external webpage in Support pane"
   },
   "firstRunSectionLabel": {
     "message": "Willkommen",
@@ -267,12 +211,24 @@
     "message": "Erweitertes Netzwerkfiltern plus spezifisches und allgemeines erweitertes Filtern aus gewählten Filterlisten.\n\nErfordert eine weitreichende Berechtigung zum Lesen und Ändern von Daten auf allen Websites.\n\nDas allgemeine erweiterte Filtern kann zu einem höheren Ressourcenverbrauch der Webseite führen.",
     "description": "This describes the 'complete' filtering mode"
   },
+  "noFilteringModeDescription": {
+    "message": "Liste der Websites, für die nicht gefiltert wird.",
+    "description": "A short description for the editable field which lists trusted sites"
+  },
+  "noFilteringModePlaceholder": {
+    "message": "[nur Hostnamen]\nexample.com\ngames.example\n…",
+    "description": "Default text for in edit field"
+  },
   "behaviorSectionLabel": {
     "message": "Verhalten",
     "description": "The header text for the 'Behavior' section"
   },
   "autoReloadLabel": {
     "message": "Seite beim Ändern des Filtermodus automatisch neu laden",
+    "description": "Label for a checkbox in the options page"
+  },
+  "showBlockedCountLabel": {
+    "message": "Anzahl der blockierten Anfragen auf dem Symbol in der Symbolleiste anzeigen",
     "description": "Label for a checkbox in the options page"
   }
 }

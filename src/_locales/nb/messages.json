@@ -16,7 +16,7 @@
     "description": "A warning in the dashboard when navigating away from unsaved changes"
   },
   "dashboardUnsavedWarningStay": {
-    "message": "Bli",
+    "message": "Bli her",
     "description": "Label for button to prevent navigating away from unsaved changes"
   },
   "dashboardUnsavedWarningIgnore": {
@@ -483,6 +483,14 @@
     "message": "Beskyttelse mot skadelig programvare, sikkerhet",
     "description": "Filter lists section name"
   },
+  "3pGroupSocial": {
+    "message": "Sosiale mediers moduler",
+    "description": "Filter lists section name"
+  },
+  "3pGroupCookies": {
+    "message": "Infokapselmeldinger",
+    "description": "Filter lists section name"
+  },
   "3pGroupAnnoyances": {
     "message": "Irritasjonsmomenter",
     "description": "Filter lists section name"
@@ -527,17 +535,25 @@
     "message": "En nettverksfeil forhindret ressursen i å bli oppdatert.",
     "description": "used as a tooltip for error icon beside a list"
   },
-  "1pFormatHint": {
-    "message": "Ett filter per linje. Et filter kan være et vanlig vertsnavn eller et EasyList-kompatibelt filter. Linjer med prefikset <code>!</code> blir ignorert.",
-    "description": "Short information about how to create custom filters"
+  "1pTrustWarning": {
+    "message": "Ikke legg til filtre fra ikke-betrodde kilder.",
+    "description": "Warning against copy-pasting filters from random sources"
+  },
+  "1pEnableMyFiltersLabel": {
+    "message": "Aktiver mine egendefinerte filtre",
+    "description": "Label for the checkbox use to enable/disable 'My filters' list"
+  },
+  "1pTrustMyFiltersLabel": {
+    "message": "Tillat egendefinerte filtre som krever tiltro",
+    "description": "Label for the checkbox use to trust the content of 'My filters' list"
   },
   "1pImport": {
-    "message": "Importer og legg til",
-    "description": "English: Import and append"
+    "message": "Importer og legg til…",
+    "description": "Button in the 'My filters' pane"
   },
   "1pExport": {
-    "message": "Eksporter",
-    "description": "English: Export"
+    "message": "Eksporter…",
+    "description": "Button in the 'My filters' pane"
   },
   "1pExportFilename": {
     "message": "mine-ublock-statiske-filtre_{{datetime}}.txt",
@@ -576,12 +592,12 @@
     "description": "Will discard manually-edited content and exit manual-edit mode"
   },
   "rulesImport": {
-    "message": "Importer fra fil",
+    "message": "Importer fra fil…",
     "description": ""
   },
   "rulesExport": {
-    "message": "Eksporter til fil",
-    "description": ""
+    "message": "Eksporter til fil…",
+    "description": "Button in the 'My rules' pane"
   },
   "rulesDefaultFileName": {
     "message": "mine-ublock-dynamiske-regler_{{datetime}}.txt",
@@ -616,12 +632,12 @@
     "description": "A concise description of the 'Trusted sites' pane."
   },
   "whitelistImport": {
-    "message": "Importer og legg til",
-    "description": "English: Import and append"
+    "message": "Importer og legg til…",
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExport": {
-    "message": "Eksporter",
-    "description": "English: Export"
+    "message": "Eksporter…",
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExportFilename": {
     "message": "mine-ublock-betrodde-sider_{{datetime}}.txt",
@@ -995,6 +1011,10 @@
     "message": "Åpner uønskede faner eller vinduer",
     "description": "An entry in the widget used to select the type of issue"
   },
+  "supportS6Select1Option7": {
+    "message": "Leads to badware, phishing",
+    "description": "An entry in the widget used to select the type of issue"
+  },
   "supportS6Checkbox1": {
     "message": "Merk nettsiden som “NSFW” (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">“Not Safe For Work”</a>) (advarsel mot sider med upassende innhold)",
     "description": "A checkbox to use for NSFW sites"
@@ -1171,6 +1191,10 @@
     "message": "Fortsett",
     "description": "Button text to navigate to the blocked page"
   },
+  "docblockedRedirectPrompt": {
+    "message": "The blocked page wants to redirect to another site. If you choose to proceed, you will navigate directly to: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
   "cloudPush": {
     "message": "Eksporter til nettlagring",
     "description": "tooltip"
@@ -1246,6 +1270,10 @@
   "toggleCosmeticFiltering": {
     "message": "Slå av/på kosmetisk filtrering",
     "description": "Label for keyboard shortcut used to toggle cosmetic filtering"
+  },
+  "toggleJavascript": {
+    "message": "Slå av/på JavaScript",
+    "description": "Label for keyboard shortcut used to toggle no-scripting switch"
   },
   "relaxBlockingMode": {
     "message": "Lemp på blokkeringsmodus",

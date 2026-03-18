@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
+    uBlock Origin Lite - a comprehensive, MV3-compliant content blocker
     Copyright (C) 2022-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -18,14 +18,6 @@
 
     Home: https://github.com/gorhill/uBlock
 */
-
-/* jshint esversion:11 */
-
-'use strict';
-
-/******************************************************************************/
-
-import { browser } from './ext.js';
 
 /******************************************************************************/
 
@@ -114,7 +106,7 @@ const hostnamesFromMatches = origins => {
             out.push('all-urls');
             continue;
         }
-        const match = /^\*:\/\/(?:\*\.)?([^\/]+)\/\*/.exec(origin);
+        const match = /^\*:\/\/(?:\*\.)?([^/]+)\/\*/.exec(origin);
         if ( match === null ) { continue; }
         out.push(match[1]);
     }
@@ -123,15 +115,15 @@ const hostnamesFromMatches = origins => {
 
 /******************************************************************************/
 
-const ubolLog = (...args) => {
-    // Do not pollute dev console in stable release.
-    if ( browser.runtime.id === 'ddkjiahejlhfcafbddmgiahcphecmpfh' ) { return; }
-    console.info('[uBOL]', ...args);
+const broadcastMessage = message => {
+    const bc = new self.BroadcastChannel('uBOL');
+    bc.postMessage(message);
 };
 
 /******************************************************************************/
 
 export {
+    broadcastMessage,
     parsedURLromOrigin,
     toBroaderHostname,
     isDescendantHostname,
@@ -140,5 +132,4 @@ export {
     subtractHostnameIters,
     matchesFromHostnames,
     hostnamesFromMatches,
-    ubolLog,
 };

@@ -14,10 +14,10 @@ cp -R ./assets $DES/
 VERSION=$(cat ./dist/version)
 if [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
     echo "*** Removing $DES/assets.dev.json"
-    rm $DES/assets.dev.json
+    rm -f $DES/assets.dev.json
 else
     echo "*** Removing $DES/assets.json"
-    rm $DES/assets.json
+    rm -f $DES/assets.json
 fi
 
 mkdir $DES/thirdparties
@@ -35,9 +35,8 @@ cp $ASSETS_PROD/thirdparties/easyprivacy.txt $DES/thirdparties/easylist/
 
 mkdir $DES/ublock
 cp $ASSETS_PROD/filters/badlists.txt $DES/ublock/badlists.txt
-cp $ASSETS_PROD/filters/badware.txt $DES/ublock/badware.txt
+cp $ASSETS_PROD/filters/badware.min.txt $DES/ublock/badware.min.txt
 cp $ASSETS_PROD/filters/filters.min.txt $DES/ublock/filters.min.txt
-cp $ASSETS_PROD/filters/filters-mobile.txt $DES/ublock/filters-mobile.txt
 cp $ASSETS_PROD/filters/privacy.min.txt $DES/ublock/privacy.min.txt
-cp $ASSETS_PROD/filters/quick-fixes.txt $DES/ublock/quick-fixes.txt
-cp $ASSETS_PROD/filters/unbreak.txt $DES/ublock/unbreak.txt
+cp $ASSETS_PROD/filters/quick-fixes.min.txt $DES/ublock/quick-fixes.min.txt
+cp $ASSETS_PROD/filters/unbreak.min.txt $DES/ublock/unbreak.min.txt

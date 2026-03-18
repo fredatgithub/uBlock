@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "uBlock₀",
+    "message": "uBlock Origin",
     "description": "extension name."
   },
   "extShortDesc": {
@@ -483,6 +483,14 @@
     "message": "Защита от вредоносных сайтов, безопасность",
     "description": "Filter lists section name"
   },
+  "3pGroupSocial": {
+    "message": "Виджеты соцсетей",
+    "description": "Filter lists section name"
+  },
+  "3pGroupCookies": {
+    "message": "Уведомления о файлах куки",
+    "description": "Filter lists section name"
+  },
   "3pGroupAnnoyances": {
     "message": "Раздражающие элементы",
     "description": "Filter lists section name"
@@ -527,17 +535,25 @@
     "message": "В результате ошибки сети обновление не произошло.",
     "description": "used as a tooltip for error icon beside a list"
   },
-  "1pFormatHint": {
-    "message": "Одно правило на строку. Правилом может быть имя сайта, или EasyList-совместимый фильтр. Строки, начинающиеся с <code>!</code>, будут проигнорированы.",
-    "description": "Short information about how to create custom filters"
+  "1pTrustWarning": {
+    "message": "Не добавляйте фильтры из ненадёжных источников.",
+    "description": "Warning against copy-pasting filters from random sources"
+  },
+  "1pEnableMyFiltersLabel": {
+    "message": "Включить мои пользовательские фильтры",
+    "description": "Label for the checkbox use to enable/disable 'My filters' list"
+  },
+  "1pTrustMyFiltersLabel": {
+    "message": "Разрешить пользовательские фильтры, требующие доверия",
+    "description": "Label for the checkbox use to trust the content of 'My filters' list"
   },
   "1pImport": {
-    "message": "Импортировать и добавить",
-    "description": "English: Import and append"
+    "message": "Импортировать и добавить…",
+    "description": "Button in the 'My filters' pane"
   },
   "1pExport": {
-    "message": "Экспортировать",
-    "description": "English: Export"
+    "message": "Экспортировать…",
+    "description": "Button in the 'My filters' pane"
   },
   "1pExportFilename": {
     "message": "my-ublock-static-filters_{{datetime}}.txt",
@@ -580,8 +596,8 @@
     "description": ""
   },
   "rulesExport": {
-    "message": "Экспорт в файл...",
-    "description": ""
+    "message": "Экспортировать в файл…",
+    "description": "Button in the 'My rules' pane"
   },
   "rulesDefaultFileName": {
     "message": "my-ublock-dynamic-rules_{{datetime}}.txt",
@@ -616,12 +632,12 @@
     "description": "A concise description of the 'Trusted sites' pane."
   },
   "whitelistImport": {
-    "message": "Импортировать и добавить",
-    "description": "English: Import and append"
+    "message": "Импортировать и добавить…",
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExport": {
-    "message": "Экспортировать",
-    "description": "English: Export"
+    "message": "Экспортировать…",
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExportFilename": {
     "message": "my-ublock-trusted-sites_{{datetime}}.txt",
@@ -995,6 +1011,10 @@
     "message": "Открываются нежелательные вкладки или окна",
     "description": "An entry in the widget used to select the type of issue"
   },
+  "supportS6Select1Option7": {
+    "message": "Вредоносное ПО, фишинг",
+    "description": "An entry in the widget used to select the type of issue"
+  },
   "supportS6Checkbox1": {
     "message": "Пометить веб-страницу как “NSFW” (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">“Not Safe For Work”</a>)",
     "description": "A checkbox to use for NSFW sites"
@@ -1171,6 +1191,10 @@
     "message": "Продолжить",
     "description": "Button text to navigate to the blocked page"
   },
+  "docblockedRedirectPrompt": {
+    "message": "Заблокированная страница собирается перенаправить вас на другой сайт. Если вы решите продолжить, вы перейдете непосредственно на: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
   "cloudPush": {
     "message": "Экспорт в облачное хранилище",
     "description": "tooltip"
@@ -1246,6 +1270,10 @@
   "toggleCosmeticFiltering": {
     "message": "Вкл/Выкл косметическую фильтрацию",
     "description": "Label for keyboard shortcut used to toggle cosmetic filtering"
+  },
+  "toggleJavascript": {
+    "message": "Вкл/Выкл JavaScript",
+    "description": "Label for keyboard shortcut used to toggle no-scripting switch"
   },
   "relaxBlockingMode": {
     "message": "Ослабленный режим блокировки",

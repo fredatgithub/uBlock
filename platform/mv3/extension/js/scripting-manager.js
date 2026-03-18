@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
+    uBlock Origin Lite - a comprehensive, MV3-compliant content blocker
     Copyright (C) 2022-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -19,18 +19,13 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-/* jshint esversion:11 */
-
-'use strict';
-
-/******************************************************************************/
+import * as ut from './utils.js';
 
 import { browser } from './ext.js';
 import { fetchJSON } from './fetch.js';
-import { getFilteringModeDetails } from './mode-manager.js';
 import { getEnabledRulesetsDetails } from './ruleset-manager.js';
-
-import * as ut from './utils.js';
+import { getFilteringModeDetails } from './mode-manager.js';
+import { ubolLog } from './debug.js';
 
 /******************************************************************************/
 
@@ -276,7 +271,7 @@ function registerProcedural(context) {
         allFrames: true,
         matches,
         excludeMatches,
-        runAt: 'document_end',
+        runAt: 'document_start',
     };
 
     // register
@@ -417,10 +412,6 @@ function registerSpecific(context) {
 /******************************************************************************/
 
 function registerScriptlet(context, scriptletDetails) {
-    // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-    //   `MAIN` world not yet supported in Firefox
-    if ( isGecko ) { return; }
-
     const { before, filteringModeDetails, rulesetsDetails } = context;
 
     const hasBroadHostPermission =
@@ -476,8 +467,14 @@ function registerScriptlet(context, scriptletDetails) {
                 matches,
                 excludeMatches,
                 runAt: 'document_start',
-                world: 'MAIN',
             };
+
+            // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
+            //   `MAIN` world not yet supported in Firefox
+            if ( isGecko === false ) {
+                directive.world = 'MAIN';
+                directive.matchOriginAsFallback = true;
+            }
 
             // register
             if ( registered === undefined ) {
@@ -541,13 +538,13 @@ async function registerInjectables(origins) {
     toRemove.push(...Array.from(before.keys()));
 
     if ( toRemove.length !== 0 ) {
-        ut.ubolLog(`Unregistered ${toRemove} content (css/js)`);
+        ubolLog(`Unregistered ${toRemove} content (css/js)`);
         await browser.scripting.unregisterContentScripts({ ids: toRemove })
             .catch(reason => { console.info(reason); });
     }
 
     if ( toAdd.length !== 0 ) {
-        ut.ubolLog(`Registered ${toAdd.map(v => v.id)} content (css/js)`);
+        ubolLog(`Registered ${toAdd.map(v => v.id)} content (css/js)`);
         await browser.scripting.registerContentScripts(toAdd)
             .catch(reason => { console.info(reason); });
     }

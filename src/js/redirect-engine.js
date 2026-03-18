@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
+    uBlock Origin - a comprehensive, efficient content blocker
     Copyright (C) 2015-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -24,11 +24,7 @@
 /******************************************************************************/
 
 import redirectableResources from './redirect-resources.js';
-
-import {
-    LineIterator,
-    orphanizeString,
-} from './text-utils.js';
+import { LineIterator, orphanizeString } from './text-utils.js';
 
 /******************************************************************************/
 
@@ -38,6 +34,7 @@ const extToMimeMap = new Map([
     [  'gif', 'image/gif' ],
     [ 'html', 'text/html' ],
     [   'js', 'text/javascript' ],
+    [ 'json', 'application/json' ],
     [  'mp3', 'audio/mp3' ],
     [  'mp4', 'video/mp4' ],
     [  'png', 'image/png' ],
@@ -66,16 +63,16 @@ const removeTopCommentBlock = text => {
     return text.replace(/^\/\*[\S\s]+?\n\*\/\s*/, '');
 };
 
-// vAPI.warSecret() is optional, it could be absent in some environments,
+// vAPI.warSecret is optional, it could be absent in some environments,
 // i.e. nodejs for example. Probably the best approach is to have the
 // "web_accessible_resources secret" added outside by the client of this
 // module, but for now I just want to remove an obstacle to modularization.
 const warSecret = typeof vAPI === 'object' && vAPI !== null
-    ? vAPI.warSecret
+    ? vAPI.warSecret.short
     : ( ) => '';
 
 const RESOURCES_SELFIE_VERSION = 7;
-const RESOURCES_SELFIE_NAME = 'compiled/redirectEngine/resources';
+const RESOURCES_SELFIE_NAME = 'selfie/redirectEngine/resources';
 
 /******************************************************************************/
 /******************************************************************************/
@@ -153,15 +150,7 @@ class RedirectEntry {
 
     static fromDetails(details) {
         const r = new RedirectEntry();
-        r.mime = details.mime;
-        r.data = details.data;
-        r.requiresTrust = details.requiresTrust === true;
-        r.warURL = details.warURL !== undefined && details.warURL || undefined;
-        r.params = details.params !== undefined && details.params || undefined;
-        r.world = details.world || 'MAIN';
-        if ( Array.isArray(details.dependencies) ) {
-            r.dependencies.push(...details.dependencies);
-        }
+        Object.assign(r, details);
         return r;
     }
 }
@@ -175,7 +164,6 @@ class RedirectEngine {
         this.resources = new Map();
         this.reset();
         this.modifyTime = Date.now();
-        this.resourceNameRegister = '';
     }
 
     reset() {
@@ -191,7 +179,6 @@ class RedirectEngine {
     ) {
         const entry = this.resources.get(this.aliases.get(token) || token);
         if ( entry === undefined ) { return; }
-        this.resourceNameRegister = token;
         return entry.toURL(fctxt, asDataURI);
     }
 
@@ -331,21 +318,23 @@ class RedirectEngine {
         const fetches = [
             import('/assets/resources/scriptlets.js').then(module => {
                 for ( const scriptlet of module.builtinScriptlets ) {
-                    const { name, aliases, fn } = scriptlet;
-                    const entry = RedirectEntry.fromDetails({
-                        mime: mimeFromName(name),
-                        data: fn.toString(),
-                        dependencies: scriptlet.dependencies,
-                        requiresTrust: scriptlet.requiresTrust === true,
-                        world: scriptlet.world || 'MAIN',
-                    });
-                    this.resources.set(name, entry);
-                    if ( Array.isArray(aliases) === false ) { continue; }
-                    for ( const alias of aliases ) {
-                        this.aliases.set(alias, name);
+                    const details = {};
+                    details.mime = mimeFromName(scriptlet.name);
+                    details.data = scriptlet.fn.toString();
+                    for ( const [ k, v ] of Object.entries(scriptlet) ) {
+                        if ( k === 'fn' ) { continue; }
+                        details[k] = v;
+                    }
+                    const entry = RedirectEntry.fromDetails(details);
+                    this.resources.set(details.name, entry);
+                    if ( Array.isArray(details.aliases) === false ) { continue; }
+                    for ( const alias of details.aliases ) {
+                        this.aliases.set(alias, details.name);
                     }
                 }
                 this.modifyTime = Date.now();
+            }).catch(reason => {
+                console.error(reason);
             }),
         ];
 
@@ -436,34 +425,43 @@ class RedirectEngine {
         });
     }
 
+    getTrustedScriptletTokens() {
+        const out = [];
+        const isTrustedScriptlet = entry => {
+            if ( entry.requiresTrust !== true ) { return false; }
+            if ( entry.warURL !== undefined ) { return false; }
+            if ( typeof entry.data !== 'string' ) { return false; }
+            if ( entry.name.endsWith('.js') === false ) { return false; }
+            return true;
+        };
+        for ( const [ name, entry ] of this.resources ) {
+            if ( isTrustedScriptlet(entry) === false ) { continue; }
+            out.push(name.slice(0, -3));
+        }
+        for ( const [ alias, name ] of this.aliases ) {
+            if ( out.includes(name.slice(0, -3)) === false ) { continue; }
+            out.push(alias.slice(0, -3));
+        }
+        return out;
+    }
+
     selfieFromResources(storage) {
-        storage.put(
-            RESOURCES_SELFIE_NAME,
-            JSON.stringify({
-                version: RESOURCES_SELFIE_VERSION,
-                aliases: Array.from(this.aliases),
-                resources: Array.from(this.resources),
-            })
-        );
+        return storage.toCache(RESOURCES_SELFIE_NAME, {
+            version: RESOURCES_SELFIE_VERSION,
+            aliases: this.aliases,
+            resources: this.resources,
+        });
     }
 
     async resourcesFromSelfie(storage) {
-        const result = await storage.get(RESOURCES_SELFIE_NAME);
-        let selfie;
-        try {
-            selfie = JSON.parse(result.content);
-        } catch(ex) {
-        }
-        if (
-            selfie instanceof Object === false ||
-            selfie.version !== RESOURCES_SELFIE_VERSION ||
-            Array.isArray(selfie.resources) === false
-        ) {
-            return false;
-        }
-        this.aliases = new Map(selfie.aliases);
-        this.resources = new Map();
-        for ( const [ token, entry ] of selfie.resources ) {
+        const selfie = await storage.fromCache(RESOURCES_SELFIE_NAME);
+        if ( selfie instanceof Object === false ) { return false; }
+        if ( selfie.version !== RESOURCES_SELFIE_VERSION ) { return false; }
+        if ( selfie.aliases instanceof Map === false ) { return false; }
+        if ( selfie.resources instanceof Map === false ) { return false; }
+        this.aliases = selfie.aliases;
+        this.resources = selfie.resources;
+        for ( const [ token, entry ] of this.resources ) {
             this.resources.set(token, RedirectEntry.fromDetails(entry));
         }
         return true;

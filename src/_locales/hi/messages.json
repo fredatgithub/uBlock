@@ -4,7 +4,7 @@
     "description": "extension name."
   },
   "extShortDesc": {
-    "message": "आख़िरकार, क्रोमियम-बेस्ड ब्राउज़रों के लिए एक कुशल अवरोधक। CPU और स्मृति पर आसान।",
+    "message": "आख़िरकार, क्रोमियम-बेस्ड ब्राउज़रों के लिए एक कुशल अवरोधक। सीपीयू और मेमोरी पर कम भार के साथ।\n",
     "description": "this will be in the Chrome web store: must be 132 characters or less"
   },
   "dashboardName": {
@@ -16,7 +16,7 @@
     "description": "A warning in the dashboard when navigating away from unsaved changes"
   },
   "dashboardUnsavedWarningStay": {
-    "message": "रुकें",
+    "message": "यहाँ रुकें",
     "description": "Label for button to prevent navigating away from unsaved changes"
   },
   "dashboardUnsavedWarningIgnore": {
@@ -36,7 +36,7 @@
     "description": "appears as tab name in dashboard"
   },
   "rulesPageName": {
-    "message": "मेरे नियम",
+    "message": "मेरे नियमों",
     "description": "appears as tab name in dashboard"
   },
   "whitelistPageName": {
@@ -240,7 +240,7 @@
     "description": ""
   },
   "popup3pAnyRulePrompt": {
-    "message": "तृतीय-पक्ष",
+    "message": "तीसरे पक्ष",
     "description": ""
   },
   "popup3pPassiveRulePrompt": {
@@ -352,7 +352,7 @@
     "description": ""
   },
   "settingsAdvancedUserPrompt": {
-    "message": "मैं एक उच्च उपयोगकर्ता हूँ (<a href='https://github.com/gorhill/uBlock/wiki/Advanced-user-features'>आवश्यक पठन</a>)",
+    "message": "मैं एक उन्नत प्रयोक्ता हूँ",
     "description": "Checkbox to let user access advanced, technical features"
   },
   "settingsPrefetchingDisabledPrompt": {
@@ -483,6 +483,14 @@
     "message": "मैलवेयर डोमेन",
     "description": "Filter lists section name"
   },
+  "3pGroupSocial": {
+    "message": "सोशल विज़ेट्स",
+    "description": "Filter lists section name"
+  },
+  "3pGroupCookies": {
+    "message": "कुकी सूचनाएं",
+    "description": "Filter lists section name"
+  },
   "3pGroupAnnoyances": {
     "message": "सतानेवाले विज्ञापन",
     "description": "Filter lists section name"
@@ -500,7 +508,7 @@
     "description": "Filter lists section name"
   },
   "3pImport": {
-    "message": "इम्पोर्ट ",
+    "message": "इम्पोर्ट...",
     "description": "The label for the checkbox used to import external filter lists"
   },
   "3pExternalListsHint": {
@@ -516,7 +524,7 @@
     "description": "used as a tooltip for eye icon beside a list"
   },
   "3pLastUpdate": {
-    "message": "अन्तिम अद्यातन: {{ago}}. कृत्रिम नवीकरण के लिए क्लिक की जिए",
+    "message": "अन्तिम अद्यातन: {{ago}}. \nकृत्रिम नवीकरण के लिए क्लिक की जिए",
     "description": "used as a tooltip for the clock icon beside a list"
   },
   "3pUpdating": {
@@ -527,17 +535,25 @@
     "message": "एक नेटवर्क त्रुटि ने रिसोर्स को अपडेट होने से रोक दिया। ",
     "description": "used as a tooltip for error icon beside a list"
   },
-  "1pFormatHint": {
-    "message": "एक लाइन में एक फ़िल्टर। एक फ़िल्टर सीधा होस्टनाम, या एक Adblock Plus- योग्य फ़िल्टर हो सकता है। <code>!<code></code>से  शुरू होने वाली लाइनों को नज़रअंदाज किया जायेगा।",
-    "description": "Short information about how to create custom filters"
+  "1pTrustWarning": {
+    "message": "अविश्वसनीय स्रोतों से फ़िल्टर न जोड़ें.",
+    "description": "Warning against copy-pasting filters from random sources"
+  },
+  "1pEnableMyFiltersLabel": {
+    "message": "मेरे कस्टम फ़िल्टर सक्षम करें",
+    "description": "Label for the checkbox use to enable/disable 'My filters' list"
+  },
+  "1pTrustMyFiltersLabel": {
+    "message": "विश्वास की आवश्यकता वाले कस्टम फ़िल्टर की अनुमति दें",
+    "description": "Label for the checkbox use to trust the content of 'My filters' list"
   },
   "1pImport": {
-    "message": "इम्पोर्ट करें और जोड़ें",
-    "description": "English: Import and append"
+    "message": "इम्पोर्ट करें और जोड़ें...",
+    "description": "Button in the 'My filters' pane"
   },
   "1pExport": {
     "message": "निर्यात करें",
-    "description": "English: Export"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExportFilename": {
     "message": "मेरे-ublock-स्‍थिर-फिल्टेरें_{{datetime}}.txt",
@@ -580,8 +596,8 @@
     "description": ""
   },
   "rulesExport": {
-    "message": "फाइल में एक्सपोर्ट करें ",
-    "description": ""
+    "message": "फाइल में एक्सपोर्ट करें...",
+    "description": "Button in the 'My rules' pane"
   },
   "rulesDefaultFileName": {
     "message": "मेरे-ublock-डायनामिक-नियम_{{datetime}}.txt",
@@ -596,7 +612,7 @@
     "description": "English: dynamic rule syntax and full documentation."
   },
   "rulesSort": {
-    "message": "क्रम में लगाये",
+    "message": "क्रम में लगाये:",
     "description": "English: label for sort option."
   },
   "rulesSortByType": {
@@ -604,7 +620,7 @@
     "description": "English: a sort option for list of rules."
   },
   "rulesSortBySource": {
-    "message": "स्रोत",
+    "message": "मूल",
     "description": "English: a sort option for list of rules."
   },
   "rulesSortByDestination": {
@@ -616,12 +632,12 @@
     "description": "A concise description of the 'Trusted sites' pane."
   },
   "whitelistImport": {
-    "message": "इम्पोर्ट करें और जोड़ें",
-    "description": "English: Import and append"
+    "message": "इम्पोर्ट करें और जोड़ें...",
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExport": {
-    "message": "निर्यात करें",
-    "description": "English: Export"
+    "message": "निर्यात करें...",
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExportFilename": {
     "message": "मेरे-उबलॉक-व्हाइटलिस्ट_{{datetime}}.txt",
@@ -952,11 +968,11 @@
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportS6P2S1": {
-    "message": "Filter lists are updated daily. Be sure your issue has not already been addressed in the most recent filter lists.",
+    "message": "फ़िल्टर सूचियों को रोजाना अपडेट किया जाता है। सुनिश्चित करें कि आपकी समस्या का समाधान पहले से ही नवीनतम फ़िल्टर सूचियों में नहीं किया गया है।",
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportS6P2S2": {
-    "message": "Verify that the issue still exists after reloading the problematic webpage.",
+    "message": "सत्यापित करें कि समस्यात्मक वेबपेज को रीलोड करने के बाद समस्या अभी भी बनी हुई है।",
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportS6URL": {
@@ -993,6 +1009,10 @@
   },
   "supportS6Select1Option6": {
     "message": "अवांछित टैब या विंडो खोलता है",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "बैडवेयर, फ़िशिंग की ओर ले जाता है",
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Checkbox1": {
@@ -1076,7 +1096,7 @@
     "description": "Message asking user to confirm reset"
   },
   "errorCantConnectTo": {
-    "message": "नेटवर्क त्रुटि : {{msg}}",
+    "message": "नेटवर्क त्रुटि: {{msg}}",
     "description": "English: Network error: {{msg}}"
   },
   "subscriberConfirm": {
@@ -1084,19 +1104,19 @@
     "description": "No longer used"
   },
   "subscribeButton": {
-    "message": "सबˈस्क्राइब्",
+    "message": "फ़िल्टर सूची का उपयोग करें",
     "description": "For the button used to subscribe to a filter list"
   },
   "elapsedOneMinuteAgo": {
-    "message": "एक मिनट पहले",
+    "message": "एक मिनट पेहेले ",
     "description": "English: a minute ago"
   },
   "elapsedManyMinutesAgo": {
-    "message": "{{value}} मिनट पहले",
+    "message": "{{value}} मिनट पेहेले ",
     "description": "English: {{value}} minutes ago"
   },
   "elapsedOneHourAgo": {
-    "message": "एक घंटे पहले",
+    "message": "एक घंटे पेहेले ",
     "description": "English: an hour ago"
   },
   "elapsedManyHoursAgo": {
@@ -1144,7 +1164,7 @@
     "description": "English: List of filter list names follows"
   },
   "docblockedBack": {
-    "message": "वापस जाएँ",
+    "message": "पीछे जाएं",
     "description": "English: Go back"
   },
   "docblockedClose": {
@@ -1168,8 +1188,12 @@
     "description": "English: Permanently"
   },
   "docblockedDisable": {
-    "message": "आगे बढ़ें",
+    "message": "आगे बढ़ें",
     "description": "Button text to navigate to the blocked page"
+  },
+  "docblockedRedirectPrompt": {
+    "message": "The blocked page wants to redirect to another site. If you choose to proceed, you will navigate directly to: {{url}}",
+    "description": "Text warning about an incoming redirect"
   },
   "cloudPush": {
     "message": "क्लाउड स्टोरेज में भेजें",
@@ -1247,6 +1271,10 @@
     "message": "कॉस्मेटिक फ़िल्टरिंग टॉगल करें",
     "description": "Label for keyboard shortcut used to toggle cosmetic filtering"
   },
+  "toggleJavascript": {
+    "message": "जावास्क्रिप्ट टॉगल करें",
+    "description": "Label for keyboard shortcut used to toggle no-scripting switch"
+  },
   "relaxBlockingMode": {
     "message": "ब्लैकिंग मोड को ढील दें",
     "description": "Label for keyboard shortcut used to relax blocking mode"
@@ -1276,7 +1304,7 @@
     "description": "Summary of number of errors as reported by the linter "
   },
   "unprocessedRequestTooltip": {
-    "message": "Could not filter properly at browser launch. Reload the page to ensure proper filtering.",
+    "message": "ब्राउज़र खोलने पर ठीक से फ़िल्टर नहीं कर सका। उचित फ़िल्टरिंग सुनिश्चित करने के लिए वेबपेज को रीलोड करें।",
     "description": "A warning which will appear in the popup panel if needed"
   },
   "dummy": {

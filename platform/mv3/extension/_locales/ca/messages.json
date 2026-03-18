@@ -15,32 +15,8 @@
     "message": "uBO Lite — Tauler",
     "description": "English: uBO Lite — Dashboard"
   },
-  "dashboardUnsavedWarning": {
-    "message": "Atenció! Hi ha canvis sense desar",
-    "description": "A warning in the dashboard when navigating away from unsaved changes"
-  },
-  "dashboardUnsavedWarningStay": {
-    "message": "Roman",
-    "description": "Label for button to prevent navigating away from unsaved changes"
-  },
-  "dashboardUnsavedWarningIgnore": {
-    "message": "Ignora",
-    "description": "Label for button to ignore unsaved changes"
-  },
   "settingsPageName": {
     "message": "Configuració",
-    "description": "appears as tab name in dashboard"
-  },
-  "3pPageName": {
-    "message": "Llistat de filtres",
-    "description": "appears as tab name in dashboard"
-  },
-  "1pPageName": {
-    "message": "Els meus filtres",
-    "description": "appears as tab name in dashboard"
-  },
-  "whitelistPageName": {
-    "message": "Llocs de confiança",
     "description": "appears as tab name in dashboard"
   },
   "aboutPageName": {
@@ -55,73 +31,21 @@
     "message": "mode de filtre",
     "description": "Label in the popup panel for the current filtering mode"
   },
-  "popupTipDashboard": {
-    "message": "Obre el tauler",
-    "description": "English: Click to open the dashboard"
-  },
-  "popupTipZapper": {
-    "message": "Accedeix al mode d'eliminació d'elements",
-    "description": "Tooltip for the element-zapper icon in the popup panel"
-  },
-  "popupTipPicker": {
-    "message": "Accedeix al mode de selecció d'elements",
-    "description": "English: Enter element picker mode"
-  },
   "popupTipReport": {
     "message": "Informa d'un problema en aquest lloc web",
     "description": "Tooltip used for the 'chat' icon in the panel"
   },
-  "popupTipSaveRules": {
-    "message": "Feu clic per fer que els vostres canvis siguin permanents.",
-    "description": "Tooltip when hovering over the padlock in the dynamic filtering pane."
-  },
-  "popupTipRevertRules": {
-    "message": "Feu clic per revertir els canvis.",
-    "description": "Tooltip when hovering over the eraser in the dynamic filtering pane."
+  "popupTipDashboard": {
+    "message": "Obre el tauler",
+    "description": "English: Click to open the dashboard"
   },
   "popupMoreButton": {
     "message": "Més",
     "description": "Label to be used to show popup panel sections"
   },
-  "popupGrantGreatPowers": {
-    "message": "Feu clic per concedir permisos ampliats a l'uBO Lite en aquest web.\nEls permisos ampliats permeten un bloqueig de contingut més efectiu.",
-    "description": "Label to be used to show popup panel sections"
-  },
-  "popupRevokeGreatPowers": {
-    "message": "Feu clic per revocar els permisos ampliats en aquest web",
-    "description": "Label to be used to show popup panel sections"
-  },
   "popupLessButton": {
     "message": "Menys",
     "description": "Label to be used to hide popup panel sections"
-  },
-  "settingsIconBadgePrompt": {
-    "message": "Mostra el nombre de sol·licituds blocades a la icona",
-    "description": "English: Show the number of blocked requests on the icon"
-  },
-  "settingsAppearance": {
-    "message": "Aparença",
-    "description": "Section for controlling user interface appearance"
-  },
-  "settingsThemeLabel": {
-    "message": "Tema",
-    "description": "Label for checkbox to enable a custom dark theme"
-  },
-  "settingsThemeAccent0Label": {
-    "message": "Color d'accent personalitzat",
-    "description": "Label for checkbox to pick an accent color"
-  },
-  "settingsNoCSPReportsPrompt": {
-    "message": "Bloca els informes CSP",
-    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
-  },
-  "omnipotenceLabel": {
-    "message": "Habilita el filtratge addicional a tots els llocs web",
-    "description": "Header for a ruleset section in 'Filter lists pane'"
-  },
-  "omnipotenceLegend": {
-    "message": "L'uBO Lite pot aplicar el filtratge estès a un lloc web determinat, només després que concediu permisos al complement per modificar les dades de forma explícita. Aquesta configuració us permet concedir permisos de filtratge estès a tots els llocs web alhora.",
-    "description": "Header for a ruleset section in 'Filter lists pane'"
   },
   "3pGroupDefault": {
     "message": "Per defecte",
@@ -151,38 +75,6 @@
     "message": "Regions, llengües",
     "description": "Header for a ruleset section in 'Filter lists pane'"
   },
-  "1pFormatHint": {
-    "message": "Un filtre per línia. Un filtre pot ser un nom d'amfitrió simple o un filtre compatible amb EasyList. Les línies amb el prefix <code>!</code> seran ignorades.",
-    "description": "Short information about how to create custom filters"
-  },
-  "1pImport": {
-    "message": "Importa i annexa",
-    "description": "English: Import and append"
-  },
-  "1pExport": {
-    "message": "Exporta",
-    "description": "English: Export"
-  },
-  "1pExportFilename": {
-    "message": "my-ublock-static-filters_{{datetime}}.txt",
-    "description": "English: my-ublock-static-filters_{{datetime}}.txt"
-  },
-  "whitelistPrompt": {
-    "message": "Les directives del lloc de confiança dicten en quines pàgines web s'ha de desactivar l'uBO Lite. Una entrada per línia.",
-    "description": "A concise description of the 'Trusted sites' pane."
-  },
-  "whitelistImport": {
-    "message": "Importa i annexa",
-    "description": "English: Import and append"
-  },
-  "whitelistExport": {
-    "message": "Exporta",
-    "description": "English: Export"
-  },
-  "whitelistExportFilename": {
-    "message": "my-ublock-trusted-sites_{{datetime}}.txt",
-    "description": "The default filename to use for import/export purpose"
-  },
   "aboutChangelog": {
     "message": "Registre de canvis",
     "description": ""
@@ -211,17 +103,69 @@
     "message": "Dependències externes (compatibles amb GPLv3):",
     "description": "Shown in the About pane"
   },
-  "genericSubmit": {
-    "message": "Envia",
-    "description": "for generic 'Submit' buttons"
+  "supportS6H": {
+    "message": "Informeu d'un problema de filtre",
+    "description": "Header of 'Report a filter issue' section in Support pane"
   },
-  "genericApplyChanges": {
-    "message": "Aplica els canvis",
-    "description": "for generic 'Apply changes' buttons"
+  "supportS3P1": {
+    "message": "Informeu d'un problema en llocs web específics mitjançant el <span data-url=\"https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue\"><code>uBlockOrigin/uAssets</code> seguiment d'errors</span>. <u>Cal un compte al GitHub.</u>",
+    "description": "First paragraph of 'Filter issues' section in Support pane"
   },
-  "genericRevert": {
-    "message": "Desfés",
-    "description": "for generic 'Revert' buttons"
+  "supportS6P1S1": {
+    "message": "Per evitar carregar els voluntaris amb informes duplicats, verifiqueu que el problema encara no s'hagi notificat.",
+    "description": "A paragraph in the filter issue reporter section"
+  },
+  "supportFindSpecificButton": {
+    "message": "Cerca d'informes semblants",
+    "description": "A clickable link in the filter issue reporter section"
+  },
+  "supportS6URL": {
+    "message": "Adreça de la pàgina web:",
+    "description": "Label for the URL of the page"
+  },
+  "supportS6Select1": {
+    "message": "La pàgina web...",
+    "description": "Label for widget to select type of issue"
+  },
+  "supportS6Select1Option0": {
+    "message": "-- Trieu una entrada --",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option1": {
+    "message": "Mostra anuncis o restes d'anuncis",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option2": {
+    "message": "Té superposicions o altres errors",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option3": {
+    "message": "Detecta l'ús de l'uBO Lite",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option4": {
+    "message": "Té problemes relacionats amb la privadesa",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option5": {
+    "message": "No es mostra correctament amb l'uBO Lite habilitat",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option6": {
+    "message": "Obre pestanyes o finestres no desitjades",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "Condueix a programari maliciós, pesca electrònica",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Checkbox1": {
+    "message": "Etiqueta l'enllaç com a «NSFW» (<a href=\"https://ca.wikipedia.org/wiki/NSFW\">“No apte per al treball”</a>)",
+    "description": "A checkbox to use for NSFW sites"
+  },
+  "supportReportSpecificButton": {
+    "message": "Crea un informe nou",
+    "description": "Text for button which open an external webpage in Support pane"
   },
   "firstRunSectionLabel": {
     "message": "Us donem la benvinguda",
@@ -267,12 +211,24 @@
     "message": "Filtratge de xarxa avançat més un filtratge estès específic i genèric de les llistes de filtres seleccionades.\n\nRequereix un ampli permís per llegir i canviar dades a tots els llocs web.\n\nEl filtratge estès genèric pot provocar un ús més elevat dels recursos de la pàgina web.",
     "description": "This describes the 'complete' filtering mode"
   },
+  "noFilteringModeDescription": {
+    "message": "Llistat de noms d'amfitrió als quals no s'aplicarà cap filtre",
+    "description": "A short description for the editable field which lists trusted sites"
+  },
+  "noFilteringModePlaceholder": {
+    "message": "[només noms d'amfitrió]\nexemple.com\njocs.exemple\n...",
+    "description": "Default text for in edit field"
+  },
   "behaviorSectionLabel": {
     "message": "Comportament",
     "description": "The header text for the 'Behavior' section"
   },
   "autoReloadLabel": {
     "message": "Recarrega automàticament la pàgina quan canvieu el mode de filtratge",
+    "description": "Label for a checkbox in the options page"
+  },
+  "showBlockedCountLabel": {
+    "message": "Mostra el nombre de sol·licituds blocades a la icona de la barra d'eines",
     "description": "Label for a checkbox in the options page"
   }
 }

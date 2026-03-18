@@ -483,6 +483,14 @@
     "message": "Domény malvéru",
     "description": "Filter lists section name"
   },
+  "3pGroupSocial": {
+    "message": "Sociálne widgety",
+    "description": "Filter lists section name"
+  },
+  "3pGroupCookies": {
+    "message": "Oznámenie o cookies",
+    "description": "Filter lists section name"
+  },
   "3pGroupAnnoyances": {
     "message": "Obťažujúce",
     "description": "Filter lists section name"
@@ -527,17 +535,25 @@
     "message": "Chyba siete zabránila aktualizácii zdroja.",
     "description": "used as a tooltip for error icon beside a list"
   },
-  "1pFormatHint": {
-    "message": "Jeden filter na riadok. Filter môže byť jednoduchý názov hostiteľa alebo filter kompatibilný s Adblock Plus. Riadky začínajúce s <code>!</code> budú ignorované.",
-    "description": "Short information about how to create custom filters"
+  "1pTrustWarning": {
+    "message": "Nepridávajte filtre z nedôveryhodných zdrojov.",
+    "description": "Warning against copy-pasting filters from random sources"
+  },
+  "1pEnableMyFiltersLabel": {
+    "message": "Povoliť moje vlastné filtre",
+    "description": "Label for the checkbox use to enable/disable 'My filters' list"
+  },
+  "1pTrustMyFiltersLabel": {
+    "message": "Povoliť vlastné filtre vyžadujúce dôveru",
+    "description": "Label for the checkbox use to trust the content of 'My filters' list"
   },
   "1pImport": {
     "message": "Importovať a pripojiť",
-    "description": "English: Import and append"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExport": {
     "message": "Exportovať",
-    "description": "English: Export"
+    "description": "Button in the 'My filters' pane"
   },
   "1pExportFilename": {
     "message": "ublock-moje-statické-filtre_{{datetime}}.txt",
@@ -580,8 +596,8 @@
     "description": ""
   },
   "rulesExport": {
-    "message": "Exportovať zo súboru",
-    "description": ""
+    "message": "Exportovať do súboru",
+    "description": "Button in the 'My rules' pane"
   },
   "rulesDefaultFileName": {
     "message": "ublock-moje-dynamické-pravidlá_{{datetime}}.txt",
@@ -617,11 +633,11 @@
   },
   "whitelistImport": {
     "message": "Importovať a pripojiť",
-    "description": "English: Import and append"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExport": {
     "message": "Exportovať",
-    "description": "English: Export"
+    "description": "Button in the 'Trusted sites' pane"
   },
   "whitelistExportFilename": {
     "message": "ublock-doveryhodne-stranky_{{datetime}}.txt",
@@ -952,7 +968,7 @@
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportS6P2S1": {
-    "message": "Zoznamy filtrov sa aktualizujú denne. Uistite sa, že váš problém už nebol riešený v najnovších zoznamoch filtrov.",
+    "message": "Zoznamy filtrov sa aktualizujú denne. Uistite sa, že váš problém už nebol vyriešený v najnovších zoznamoch filtrov.",
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportS6P2S2": {
@@ -995,12 +1011,16 @@
     "message": "Otvára nechcené karty alebo okná",
     "description": "An entry in the widget used to select the type of issue"
   },
+  "supportS6Select1Option7": {
+    "message": "Smeruje k badvéru a phishingu",
+    "description": "An entry in the widget used to select the type of issue"
+  },
   "supportS6Checkbox1": {
     "message": "Označiť webstránku ako &ldquo;NSFW&rdquo; (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">Nie je bezpečné pre prácu&rdquo;)",
     "description": "A checkbox to use for NSFW sites"
   },
   "supportRedact": {
-    "message": "Upravovať",
+    "message": "Upraviť",
     "description": "Text for 'Redact' button"
   },
   "supportUnredact": {
@@ -1171,6 +1191,10 @@
     "message": "Pokračovať",
     "description": "Button text to navigate to the blocked page"
   },
+  "docblockedRedirectPrompt": {
+    "message": "Zablokovaná stránka chce presmerovať na inú stránku. Ak sa rozhodnete pokračovať, prejdete priamo na: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
   "cloudPush": {
     "message": "Exportovať do cloudového úložiska",
     "description": "tooltip"
@@ -1224,7 +1248,7 @@
     "description": "A context menu entry, present when large media elements have been blocked on the current site"
   },
   "contextMenuViewSource": {
-    "message": "Zobraziť zdrojový kód…",
+    "message": "Zobraziť zdrojový kód",
     "description": "A context menu entry, to view the source code of the target resource"
   },
   "shortcutCapturePlaceholder": {
@@ -1246,6 +1270,10 @@
   "toggleCosmeticFiltering": {
     "message": "Prepnúť kozmetické filtrovanie",
     "description": "Label for keyboard shortcut used to toggle cosmetic filtering"
+  },
+  "toggleJavascript": {
+    "message": "Prepnúť JavaScript",
+    "description": "Label for keyboard shortcut used to toggle no-scripting switch"
   },
   "relaxBlockingMode": {
     "message": "Zmierniť režim blokovania",
@@ -1276,7 +1304,7 @@
     "description": "Summary of number of errors as reported by the linter "
   },
   "unprocessedRequestTooltip": {
-    "message": "Pri spustení prehliadača sa nepodarilo správne filtrovať.\nZnova načítajte stránku, aby ste zaistili správne filtrovanie",
+    "message": "Pri spustení prehliadača sa nepodarilo správne filtrovať.\nZnova načítajte stránku, aby ste zaistili správne filtrovanie.",
     "description": "A warning which will appear in the popup panel if needed"
   },
   "dummy": {
